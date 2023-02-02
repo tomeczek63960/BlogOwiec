@@ -5,16 +5,10 @@ import '@style/global/index.scss';
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "@components/Layout";
 
-// TODO: add eslint configuration
-// TODO: fetch blog posts
-// TODO: create single post template
-// TODO: style navigation
-// TODO: add simple opacity & transform sections animation (data-aos...)
-// TODO: create container 
-const IndexPage: React.FC<PageProps> = () => {
+const AboutPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <h1>home</h1>
+      <h1>about</h1>
       <div className={banner}>
         <StaticImage
           src="../images/banner.jpg"
@@ -29,6 +23,6 @@ const IndexPage: React.FC<PageProps> = () => {
   )
 }
 
-export default IndexPage
+export default AboutPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>About Page</title>

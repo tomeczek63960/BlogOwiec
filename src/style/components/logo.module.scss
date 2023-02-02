@@ -1,0 +1,21 @@
+.logo {
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  img,
+  picture {
+    width: auto;
+    height: 45px!important;
+    object-fit: contain!important;
+  }
+  span {
+    font-weight: 900;
+    font-family: sans-serif;
+    color: #090E24;
+    &:last-of-type {
+      color: #ff0037;
+    }
+  }
+}
