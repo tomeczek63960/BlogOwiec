@@ -1,5 +1,8 @@
 @import '../shared/index';
 
 .introduction {
-  margin: 2rem 0;
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
 }

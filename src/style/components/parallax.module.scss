@@ -1,12 +1,22 @@
 @import '../shared/index';
 
 .parallax {
-  margin: 2rem 0;
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
   &__image {
-    height: 400px;
+    margin: 0 -2.5rem;
+    width: calc(100% + 5rem);
+    height: 25rem;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    @include tabletP {
+      margin: 0;
+      width: 100%;
+      height: 40rem;
+    }
   }
 }

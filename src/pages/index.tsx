@@ -6,6 +6,7 @@ import Banner from "@components/Banner";
 import Introduction from "@components/Introduction";
 import SliderCarousel from "@components/SliderCarousel";
 import Parallax from "@components/Parallax";
+import PostsList from "@components/PostsList";
 
 // TODO: add eslint configuration
 // TODO: fetch blog posts
@@ -20,6 +21,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Introduction />
       <Parallax />
       <SliderCarousel />
+      <PostsList />
     </Layout>
   )
 }

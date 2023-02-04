@@ -1,7 +1,10 @@
 @import '../shared/index';
 
 .slider {
-  margin: 2rem 0;
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
   &-content {
     overflow: hidden;
   }
