@@ -12,9 +12,7 @@ const Logo = () => {
           src="../images/logo.png"
           alt="A dinosaur"
           placeholder="blurred"
-          layout="fixed"
-          height={45}
-          // width={200}
+          layout="constrained"
         />
       </Link>
     </>

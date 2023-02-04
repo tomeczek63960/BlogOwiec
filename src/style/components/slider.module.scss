@@ -1,0 +1,8 @@
+@import '../shared/index';
+
+.slider {
+  margin: 2rem 0;
+  &-content {
+    overflow: hidden;
+  }
+}

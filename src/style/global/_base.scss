@@ -1,3 +1,5 @@
+@import '../shared/index';
+
 html {
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
@@ -5,4 +7,74 @@ html {
   font-style: normal;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  text-size-adjust: 100%; // iOS on orientation change
+  color: $primaryDark;
+  font-family: $fontFamilyPrimary;
+  font-weight: $fontWeightMedium;
+  font-size: 1.6rem;
+  line-height: 2.3rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  backface-visibility: hidden;
+  overflow-x: hidden;
+  background: $white;
+  @include tabletP {
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+  }
+  @include deskHD {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+strong {
+  font-weight: $fontWeightBold;
+}
+
+.slick-slider {
+  .slick {
+    &-list {
+      margin: 0 -1rem !important;
+      padding-bottom: 3rem !important;
+    }
+    &-slide > div {
+      margin: 0 1rem !important;
+    }
+    &-dots {
+      bottom: 0 !important;
+    }
+    &-arrow {
+      width: 3.5rem !important;
+      height: 3.5rem !important;
+      z-index: 1000;
+      top: 50% !important;
+      &::before {
+        transition: $transition-base;
+        color: $black !important;
+        font-size: 3.5rem !important;
+        opacity: 1 !important;
+      }
+      &:hover {
+        &::before {
+          color: $primaryRed !important;
+        }
+      }
+    }
+    &-next {
+      right: 0 !important;
+    }
+    &-prev {
+      left: 0 !important;
+    }
+  }
 }

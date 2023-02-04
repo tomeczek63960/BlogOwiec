@@ -7,7 +7,6 @@ import Banner from "@components/Banner";
 const AboutPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <h1>about</h1>
       <Banner />      
     </Layout>
   )

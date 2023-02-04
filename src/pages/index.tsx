@@ -3,6 +3,8 @@ import type { HeadFC, PageProps } from "gatsby"
 import '@style/global/index.scss';
 import Layout from "@components/Layout";
 import Banner from "@components/Banner";
+import Introduction from "@components/Introduction";
+import SliderCarousel from "@components/SliderCarousel";
 
 // TODO: add eslint configuration
 // TODO: fetch blog posts
@@ -13,8 +15,9 @@ import Banner from "@components/Banner";
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <h1>home</h1>
       <Banner />
+      <Introduction />
+      <SliderCarousel />
     </Layout>
   )
 }

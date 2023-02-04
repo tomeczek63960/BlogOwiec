@@ -1,0 +1,88 @@
+@import '../shared/index';
+
+h1, h2, h3, h4, h5 {
+  margin: 2rem 0;
+  font-family: $fontFamilyPrimary;
+  font-weight: $fontWeightBold;
+  color: $primaryDark;
+}
+
+h1 {
+  font-size: 4.1rem;
+  line-height: 4.9rem;
+
+  @include tabletP {
+    font-size: 6.1rem;
+    line-height: 7.3rem;
+  }
+
+  @include deskHD {
+    font-size: 8.5rem;
+    line-height: 10.2rem;
+  }
+}
+
+h2 {
+  font-size: 2.7rem;
+  line-height: 3.5rem;
+
+  @include tabletP {
+    font-size: 3.4rem;
+    line-height: 4.1rem;
+  }
+
+  @include deskHD {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
+}
+
+h3 {
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+
+  @include tabletP {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+  }
+
+  @include deskHD {
+    font-size: 3.8rem;
+    line-height: 4.6rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+  line-height: 2.8rem;
+
+  @include deskHD {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+
+}
+
+h5 {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+
+  @include deskHD {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+}
+
+h6 {
+  font-family: $fontFamilyPrimary;
+  font-weight: $fontWeightBold;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  @include deskHD {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+}
+p {
+  margin: 2rem 0;
+}
