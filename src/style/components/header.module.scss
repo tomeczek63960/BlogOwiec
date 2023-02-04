@@ -1,0 +1,28 @@
+@import '../shared/index';
+
+.header {
+  background-color: $lightGray;
+  padding: 1.5rem 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-list {
+    display: flex;
+    li {
+      margin-left: 2rem;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  &-link {
+    font-size: 2rem;
+    font-weight: 600;
+    transition: $transition-base;
+    &:hover {
+      color: $primaryRed
+    }
+  }
+}

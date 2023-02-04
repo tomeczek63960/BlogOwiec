@@ -1,0 +1,29 @@
+@import '../shared/index';
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 48rem;
+  padding-left: $gridSpacerMobile;
+  padding-right: $gridSpacerMobile;
+
+  @include tabletP {
+    padding-left: $gridSpacerTabletP;
+    padding-right: $gridSpacerTabletP;
+    max-width: 78rem;
+  }
+  @include tabletL {
+    padding-left: $gridSpacerTabletL;
+    padding-right: $gridSpacerTabletL;
+    max-width: 103rem;
+  }
+  @include desk {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100rem;
+  }
+  @include deskHD {
+    max-width: 140rem;
+  }
+}

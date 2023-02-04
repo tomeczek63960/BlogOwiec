@@ -1,3 +1,4 @@
+@import '../shared/index';
 .logo {
   font-family: sans-serif;
   font-weight: 900;
@@ -13,9 +14,9 @@
   span {
     font-weight: 900;
     font-family: sans-serif;
-    color: #090E24;
+    color: $primaryDark;
     &:last-of-type {
-      color: #ff0037;
+      color: $primaryRed;
     }
   }
 }
