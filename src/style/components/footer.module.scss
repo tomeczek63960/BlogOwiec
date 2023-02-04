@@ -1,0 +1,53 @@
+@import '../shared/index';
+
+.footer {
+  padding: 2rem 0;
+  background: $darkGray;
+  @include tabletL {
+    padding: 4rem 0;
+  }  
+  &__content {
+    @include tabletP {
+      display: flex;
+    }
+  }
+  &__col {
+    width: 100%;
+    & + .footer__col {
+      margin-top: 5rem;
+      @include tabletP {
+        margin-top: 0;
+      }
+    }
+    h4, a {
+      color: $lightGray;
+    }
+    a {
+      transition: $transition-base;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    ul {
+      li {
+        a {
+          text-decoration: underline;
+          font-size: 1.6rem;
+        }
+        & + li {
+          margin-top: 0.5rem;
+          @include tabletL {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+  &__socials {
+    display: flex;
+    gap: 1rem;
+    svg {
+      width: 4rem;
+    }
+  }
+}

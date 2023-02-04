@@ -1,6 +1,7 @@
 import * as React from "react"
 import { slider, sliderSlide, sliderContent } from '@style/components/slider.module.scss';
 import { container } from '@style/components/container.module.scss';
+import { Link } from "gatsby"
 
 import Slider from "react-slick"
 import { StaticImage } from "gatsby-plugin-image"
@@ -36,7 +37,10 @@ const SliderCarousel: React.FC = () => {
       <div className={container}>
         <h2>Może Ci się spodobać</h2>
         <Slider {...settings} className={sliderContent}>
-          <div className={sliderSlide}>
+          <Link
+            to="/"
+            className={sliderSlide}
+          >
             <StaticImage
               src="../images/banner.jpg"
               alt="A dinosaur"
@@ -45,8 +49,11 @@ const SliderCarousel: React.FC = () => {
             />
             <h3>rere hre</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, corrupti mollitia soluta quam id culpa nesciunt voluptatibus</p>
-          </div>
-          <div className={sliderSlide}>
+          </Link>
+          <Link
+            to="/"
+            className={sliderSlide}
+          >
             <StaticImage
               src="../images/banner.jpg"
               alt="A dinosaur"
@@ -55,8 +62,11 @@ const SliderCarousel: React.FC = () => {
             />
             <h3>rere hre</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, corrupti mollitia soluta quam id culpa nesciunt voluptatibus</p>
-          </div>
-          <div className={sliderSlide}>
+          </Link>
+          <Link
+            to="/"
+            className={sliderSlide}
+          >
             <StaticImage
               src="../images/banner.jpg"
               alt="A dinosaur"
@@ -65,8 +75,11 @@ const SliderCarousel: React.FC = () => {
             />
             <h3>rere hre</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, corrupti mollitia soluta quam id culpa nesciunt voluptatibus</p>
-          </div>
-          <div className={sliderSlide}>
+          </Link>
+          <Link
+            to="/"
+            className={sliderSlide}
+          >
             <StaticImage
               src="../images/banner.jpg"
               alt="A dinosaur"
@@ -75,7 +88,8 @@ const SliderCarousel: React.FC = () => {
             />
             <h3>rere hre</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, corrupti mollitia soluta quam id culpa nesciunt voluptatibus</p>
-          </div>
+          </Link>
+
         </Slider>
       </div>
     </section>
