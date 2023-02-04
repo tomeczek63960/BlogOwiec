@@ -1,0 +1,12 @@
+@import '../shared/index';
+
+.parallax {
+  margin: 2rem 0;
+  &__image {
+    height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
