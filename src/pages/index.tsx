@@ -15,6 +15,7 @@ import PostsList from "@components/PostsList";
 // TODO: style navigation
 // TODO: add simple opacity & transform sections animation (data-aos...)
 // TODO: create container 
+// TODO: add transition between pages
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
