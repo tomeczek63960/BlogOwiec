@@ -19,7 +19,6 @@ const Header = () => {
     }
   `)
   const { nodes } = data.allContentfulNav
-  console.log(nodes)
   useEffect(() => {
     const html = document.querySelector('html');
     if (!html) return;
