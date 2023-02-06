@@ -37,8 +37,8 @@ const SliderCarousel: React.FC = ({content}: any) => {
       <div className={container}>
         <h2>Może Ci się spodobać</h2>
         <Slider {...settings} className={sliderContent}>
-          {content.blogReference.map((blogPost: any) => <Link
-              key={blogPost.id}
+          {content.blogReference.map((blogPost: any, index: number) => <Link
+              key={`${blogPost.id}-${index}`}
               to={blogPost.slug}
               className={sliderSlide}
             >
