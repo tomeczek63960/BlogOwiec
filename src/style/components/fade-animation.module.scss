@@ -1,0 +1,8 @@
+.fade-animation {
+  opacity: 0;
+  transform: translateY(10%);
+  &--opacity {
+    opacity: 0;
+    transform: unset;
+  }
+}

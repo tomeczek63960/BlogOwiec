@@ -4,6 +4,7 @@ import Introduction from "@components/Introduction";
 import SliderCarousel from "@components/SliderCarousel";
 import Parallax from "@components/Parallax";
 import PostsList from "@components/PostsList";
+import FadeAnimation from "@components/FadeAnimation";
 
 const ContentSwitcher: React.FC = ({ content }: any) => {
   const type: 'ContentfulBanner' | 'ContentfulText' | 'ContentfulParallax' | 'ContentfulBlogsReference' = content.internal.type
@@ -15,7 +16,9 @@ const ContentSwitcher: React.FC = ({ content }: any) => {
   }
   const Component = components[type];
   return (
-    <Component content={content} />
+    <FadeAnimation onlyFade={type === 'ContentfulParallax'}>
+      <Component content={content} />
+    </FadeAnimation>
   )
 }
 
