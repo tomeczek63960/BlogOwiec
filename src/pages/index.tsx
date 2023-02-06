@@ -7,12 +7,12 @@ import ContentSwitcher from "@components/ContentSwitcher";
 
 // TODO: get all data from contentful
 // TODO: add eslint configuration
-// TODO: fetch blog posts
-// TODO: create single post template
-// TODO: style navigation
-// TODO: add simple opacity & transform sections animation (data-aos...)
 // TODO: create container 
 // TODO: add transition between pages
+// TODO: update all types
+// TODO: add multilang
+// TODO: update contentful images & texts
+// TODO: add contact form
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages;
   return (
@@ -26,6 +26,7 @@ const IndexPage: React.FC<PageProps> = ({data}: any) => {
 
 export default IndexPage;
 
+// TODO: extract contents query to fragments when gatsby 5 will be stable
 export const query = graphql`
   query MyQuery {
     contentfulPages(slug: {eq: "/"}) {

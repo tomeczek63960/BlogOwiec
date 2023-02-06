@@ -18,6 +18,7 @@ const ContactPage: React.FC<PageProps> = ({data}: any) => {
 
 export default ContactPage;
 
+// TODO: extract contents query to fragments when gatsby 5 will be stable
 export const query = graphql`
   query MyQuery {
     contentfulPages(slug: {eq: "/contact"}) {

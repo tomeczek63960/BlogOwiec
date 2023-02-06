@@ -39,7 +39,7 @@ const SliderCarousel: React.FC = ({content}: any) => {
         <Slider {...settings} className={sliderContent}>
           {content.blogReference.map((blogPost: any, index: number) => <Link
               key={`${blogPost.id}-${index}`}
-              to={blogPost.slug}
+              to={`/${blogPost.slug}`}
               className={sliderSlide}
             >
               <GatsbyImage image={getImage(blogPost.imageCard)} alt="blog card iamge" />
