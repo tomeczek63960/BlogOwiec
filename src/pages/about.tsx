@@ -7,7 +7,6 @@ import ContentSwitcher from "@components/ContentSwitcher"
 
 const AboutPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
-  console.log(data)
   return (
     <Layout>
       {
@@ -43,6 +42,9 @@ export const query = graphql`
           blogReference {
             slug
             title
+            category {
+              name
+            }
             imageCard {
               gatsbyImageData
             }

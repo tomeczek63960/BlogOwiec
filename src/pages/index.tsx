@@ -11,7 +11,9 @@ import ContentSwitcher from "@components/ContentSwitcher"
 // TODO: add multilang
 // TODO: update contentful images & texts
 // TODO: add contact form validations & sample submit method
-// TODO: add tags on blog posts & filtering on blog page
+// TODO: add blog listing filtering custom animation
+// TODO: add google fonts sans serif
+// TODO: add contentful footer
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
   return (
@@ -49,6 +51,9 @@ export const query = graphql`
           blogReference {
             slug
             title
+            category {
+              name
+            }
             imageCard {
               gatsbyImageData
             }

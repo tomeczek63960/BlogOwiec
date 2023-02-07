@@ -4,7 +4,6 @@ import { container } from "@style/components/container.module.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ImagesBlock: React.FC = ({content}: any) => {
-  console.log(content)
   return (
     <section className={imagesBlock}>
       <div className={container}>

@@ -6,7 +6,6 @@ import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 const ContactPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
-  console.log(data)
   return (
     <Layout data={data}>
       {
@@ -42,6 +41,9 @@ export const query = graphql`
           blogReference {
             slug
             title
+            category {
+              name
+            }
             imageCard {
               gatsbyImageData
             }

@@ -17,4 +17,20 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+  &__filters {
+    display: flex;
+    gap: 2rem;
+    &__item {
+      padding: 0.5rem 2rem;
+      background-color: $white;
+      color: $primaryDark;
+      border: 0.2rem solid $primaryDark;
+      font-weight: 700;
+      border-radius: 1.5rem;
+      &--active {
+        background-color: $primaryDark;
+        color: $white;
+      }
+    }
+  }
 }

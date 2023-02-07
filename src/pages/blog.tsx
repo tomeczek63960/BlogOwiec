@@ -42,6 +42,9 @@ export const query = graphql`
           blogReference {
             slug
             title
+            category {
+              name
+            }
             imageCard {
               gatsbyImageData
             }
