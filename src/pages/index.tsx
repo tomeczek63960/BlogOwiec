@@ -14,6 +14,7 @@ import ContentSwitcher from "@components/ContentSwitcher"
 // TODO: add blog listing filtering custom animation
 // TODO: add google fonts sans serif
 // TODO: add contentful footer
+// TODO: optimization - lazy loading - dynamic imports
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
   return (

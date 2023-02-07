@@ -4,6 +4,7 @@ import { container } from "@style/components/container.module.scss"
 import PostCard from "@components/PostCard"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { useStaticQuery, graphql } from "gatsby"
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const BlogListing: FC = ({content}: any) => {
   const data = useStaticQuery(graphql`
@@ -32,6 +33,7 @@ const BlogListing: FC = ({content}: any) => {
       }
     }
   `)
+  const [animationParent] = useAutoAnimate()
   const [activePosts, setActivePosts] = useState(data?.posts?.nodes);
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const updateActiveCategories = (category: string) => {
@@ -64,7 +66,7 @@ const BlogListing: FC = ({content}: any) => {
             >{category.name}</button>
           )}
         </div>
-        <div className={blogListing__content}>
+        <div className={blogListing__content} ref={animationParent}>
           {activePosts?.map((post: any) => <PostCard key={`blog-listing-${post.id}`} post={post} />)}
         </div>
       </div>
