@@ -1,12 +1,12 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import '@style/global/index.scss';
-import Layout from "@components/Layout";
+import "@style/global/index.scss"
+import Layout from "@components/Layout"
 import { graphql } from "gatsby"
-import ContentSwitcher from "@components/ContentSwitcher";
+import ContentSwitcher from "@components/ContentSwitcher"
 const ContactPage: React.FC<PageProps> = ({data}: any) => {
-  const {contents} = data.contentfulPages;
-  console.log(data);
+  const {contents} = data.contentfulPages
+  console.log(data)
   return (
     <Layout data={data}>
       {
@@ -16,7 +16,7 @@ const ContactPage: React.FC<PageProps> = ({data}: any) => {
   )
 }
 
-export default ContactPage;
+export default ContactPage
 
 // TODO: extract contents query to fragments when gatsby 5 will be stable
 export const query = graphql`
@@ -33,6 +33,9 @@ export const query = graphql`
           id
         }
         ... on ContentfulBlogsReference {
+          content {
+            raw
+          }
           internal {
             type
           }
@@ -78,7 +81,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 
 export const Head: HeadFC = () => <title>Contact Page</title>

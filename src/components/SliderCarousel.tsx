@@ -1,12 +1,12 @@
 import * as React from "react"
-import { slider, sliderSlide, sliderContent } from '@style/components/slider.module.scss';
-import { container } from '@style/components/container.module.scss';
-import { Link } from "gatsby"
+import { slider, sliderContent } from "@style/components/slider.module.scss"
+import { container } from "@style/components/container.module.scss"
 import Slider from "react-slick"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import PostCard from "@components/PostCard"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const settings = {
   autoplay: false,
@@ -35,17 +35,10 @@ const SliderCarousel: React.FC = ({content}: any) => {
   return (
     <section className={slider}>
       <div className={container}>
-        <h2>Może Ci się spodobać</h2>
+        {renderRichText(content.content)}
         <Slider {...settings} className={sliderContent}>
-          {content.blogReference.map((blogPost: any, index: number) => <Link
-              key={`${blogPost.id}-${index}`}
-              to={`/${blogPost.slug}`}
-              className={sliderSlide}
-            >
-              <GatsbyImage image={getImage(blogPost.imageCard)} alt="blog card iamge" />
-              <h3>{blogPost.title}</h3>
-              <p>{blogPost.shortDescription.shortDescription}</p>
-            </Link>
+          {content.blogReference.map((blogPost: any, index: number) => 
+            <PostCard key={`blogs-slider-${blogPost.id}`} post={blogPost} />
           )}
         </Slider>
       </div>
@@ -53,4 +46,4 @@ const SliderCarousel: React.FC = ({content}: any) => {
   )
 }
 
-export default SliderCarousel;
+export default SliderCarousel

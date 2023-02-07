@@ -1,6 +1,6 @@
 import * as React from "react"
-import { contactForm, contactForm__content, contactForm__text, contactForm__form, contactForm__fields, contactForm__group, contactForm__groupSecondary, contactForm__label, contactForm__input, contactForm__textarea, contactForm__button } from '@style/components/contact-form.module.scss';
-import { container } from '@style/components/container.module.scss';
+import { contactForm, contactForm__content, contactForm__text, contactForm__form, contactForm__fields, contactForm__group, contactForm__groupSecondary, contactForm__label, contactForm__input, contactForm__textarea, contactForm__button } from "@style/components/contact-form.module.scss"
+import { container } from "@style/components/container.module.scss"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const ContactForm: React.FC = ({content}: any) => {
@@ -46,4 +46,4 @@ const ContactForm: React.FC = ({content}: any) => {
   )
 }
 
-export default ContactForm;
+export default ContactForm

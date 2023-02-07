@@ -1,6 +1,6 @@
 import * as React from "react"
-import { footer, footer__content, footer__col, footer__socials } from '@style/components/footer.module.scss';
-import { container } from '@style/components/container.module.scss';
+import { footer, footer__content, footer__col, footer__socials } from "@style/components/footer.module.scss"
+import { container } from "@style/components/container.module.scss"
 import { Link } from "gatsby"
 
 const Footer: React.FC = () => {
@@ -56,4 +56,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer;
+export default Footer

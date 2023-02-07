@@ -1,6 +1,6 @@
 import * as React from "react"
-import { introduction } from '@style/components/introduction.module.scss';
-import { container } from '@style/components/container.module.scss';
+import { introduction } from "@style/components/introduction.module.scss"
+import { container } from "@style/components/container.module.scss"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 const Introduction: React.FC = ({ content }: any) => {
   return (
@@ -12,4 +12,4 @@ const Introduction: React.FC = ({ content }: any) => {
   )
 }
 
-export default Introduction;
+export default Introduction

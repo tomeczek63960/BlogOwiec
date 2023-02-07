@@ -1,9 +1,9 @@
 import * as React from "react"
-import { gsap } from "gsap";
-import {fadeAnimation, fadeAnimationOpacity} from '@style/components/fade-animation.module.scss'
+import { gsap } from "gsap"
+import {fadeAnimation, fadeAnimationOpacity} from "@style/components/fade-animation.module.scss"
 
 const FadeAnimation: React.FC = ({children, onlyFade}: any) => {
-  const triggerRef = React.useRef<HTMLDivElement>(null);
+  const triggerRef = React.useRef<HTMLDivElement>(null)
   React.useEffect(() => {
     const options: any = {
       duration: 0.7,
@@ -18,10 +18,10 @@ const FadeAnimation: React.FC = ({children, onlyFade}: any) => {
       }
     }
     if (!onlyFade) {
-      options.y = 0;
+      options.y = 0
     }
-    gsap.to(triggerRef.current, options);
-  }, []);
+    gsap.to(triggerRef.current, options)
+  }, [])
   return (
     <div className={`${fadeAnimation} ${onlyFade && fadeAnimationOpacity}`} ref={triggerRef}>
       {children}
@@ -29,4 +29,4 @@ const FadeAnimation: React.FC = ({children, onlyFade}: any) => {
   )
 }
 
-export default FadeAnimation;
+export default FadeAnimation

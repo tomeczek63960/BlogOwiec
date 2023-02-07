@@ -1,13 +1,13 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import '@style/global/index.scss';
-import Layout from "@components/Layout";
-import Banner from "@components/Banner";
-import { container } from '@style/components/container.module.scss';
-import ContentSwitcher from "@components/ContentSwitcher";
+import "@style/global/index.scss"
+import Layout from "@components/Layout"
+import Banner from "@components/Banner"
+import { container } from "@style/components/container.module.scss"
+import ContentSwitcher from "@components/ContentSwitcher"
 
 const Template: React.FC<PageProps> = ({pageContext}: any) => {
-  const {title, slug, id, image, content, shortDescription} = pageContext.blog;
+  const {title, slug, id, image, content, shortDescription} = pageContext.blog
   return (
     <Layout>
       <div className={container}>

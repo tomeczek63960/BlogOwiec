@@ -1,6 +1,6 @@
 import * as React from "react"
-import { parallax, parallax__image } from '@style/components/parallax.module.scss';
-import { container } from '@style/components/container.module.scss';
+import { parallax, parallax__image } from "@style/components/parallax.module.scss"
+import { container } from "@style/components/container.module.scss"
 
 const Parallax: React.FC = ({content}: any) => {
   return (
@@ -15,4 +15,4 @@ const Parallax: React.FC = ({content}: any) => {
   )
 }
 
-export default Parallax;
+export default Parallax

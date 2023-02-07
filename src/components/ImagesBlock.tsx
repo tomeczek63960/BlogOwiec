@@ -1,10 +1,10 @@
 import * as React from "react"
-import { imagesBlock, imagesBlock__content } from '@style/components/images-block.module.scss';
-import { container } from '@style/components/container.module.scss';
+import { imagesBlock, imagesBlock__content } from "@style/components/images-block.module.scss"
+import { container } from "@style/components/container.module.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ImagesBlock: React.FC = ({content}: any) => {
-  console.log(content);
+  console.log(content)
   return (
     <section className={imagesBlock}>
       <div className={container}>
@@ -18,4 +18,4 @@ const ImagesBlock: React.FC = ({content}: any) => {
   )
 }
 
-export default ImagesBlock;
+export default ImagesBlock

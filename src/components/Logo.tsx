@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { logo } from '@style/components/logo.module.scss';
+import { logo } from "@style/components/logo.module.scss"
 
 const Logo = () => {
   return (

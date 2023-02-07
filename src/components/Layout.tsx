@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import gsap from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useEffect } from "react"
+import Header from "@components/Header"
+import Footer from "@components/Footer"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Layout: React.FC<Props> = ({children}) => {
@@ -20,4 +20,4 @@ const Layout: React.FC<Props> = ({children}) => {
   )
 }
 
-export default Layout;
+export default Layout

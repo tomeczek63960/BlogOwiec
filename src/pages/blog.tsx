@@ -5,14 +5,7 @@ import Layout from "@components/Layout"
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 
-// TODO: add dynamic page & there all content handling functionalities
-// TODO: add transition between pages
-// TODO: update all types
-// TODO: add multilang
-// TODO: update contentful images & texts
-// TODO: add contact form validations & sample submit method
-// TODO: add tags on blog posts & filtering on blog page
-const IndexPage: React.FC<PageProps> = ({data}: any) => {
+const BlogPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
   return (
     <Layout>
@@ -23,12 +16,12 @@ const IndexPage: React.FC<PageProps> = ({data}: any) => {
   )
 }
 
-export default IndexPage
+export default BlogPage
 
 // TODO: extract contents query to fragments when gatsby 5 will be stable
 export const query = graphql`
   query MyQuery {
-    contentfulPages(slug: {eq: "/"}) {
+    contentfulPages(slug: {eq: "/blog"}) {
       contents {
         ... on ContentfulBanner {
           image {
@@ -75,6 +68,15 @@ export const query = graphql`
             raw
           }
           id
+        }
+        ... on ContentfulBlogPosts {
+          id
+          internal {
+            type
+          }
+          content {
+            raw
+          }
         }
       }
     }

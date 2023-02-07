@@ -1,7 +1,7 @@
 import * as React from "react"
-import { banner } from '@style/components/banner.module.scss';
+import { banner } from "@style/components/banner.module.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { container } from '@style/components/container.module.scss';
+import { container } from "@style/components/container.module.scss"
 
 const Banner: React.FC = ({content}: any) => {
   const image = getImage(content.image)
@@ -14,4 +14,4 @@ const Banner: React.FC = ({content}: any) => {
   )
 }
 
-export default Banner;
+export default Banner

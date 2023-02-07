@@ -1,12 +1,12 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import '@style/global/index.scss';
-import Layout from "@components/Layout";
+import "@style/global/index.scss"
+import Layout from "@components/Layout"
 import { graphql } from "gatsby"
-import ContentSwitcher from "@components/ContentSwitcher";
+import ContentSwitcher from "@components/ContentSwitcher"
 
 const AboutPage: React.FC<PageProps> = ({data}: any) => {
-  const {contents} = data.contentfulPages;
+  const {contents} = data.contentfulPages
   console.log(data)
   return (
     <Layout>
@@ -34,6 +34,9 @@ export const query = graphql`
           id
         }
         ... on ContentfulBlogsReference {
+          content {
+            raw
+          }
           internal {
             type
           }
@@ -70,6 +73,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 export const Head: HeadFC = () => <title>About Page</title>
