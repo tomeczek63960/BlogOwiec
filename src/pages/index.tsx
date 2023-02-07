@@ -5,14 +5,12 @@ import Layout from "@components/Layout";
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher";
 
-// TODO: get all data from contentful
-// TODO: add eslint configuration
-// TODO: create container 
 // TODO: add transition between pages
 // TODO: update all types
 // TODO: add multilang
 // TODO: update contentful images & texts
-// TODO: add contact form
+// TODO: add contact form validations & sample submit method
+// TODO: add blog listing component
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages;
   return (

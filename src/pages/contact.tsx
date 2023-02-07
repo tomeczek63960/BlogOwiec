@@ -66,6 +66,15 @@ export const query = graphql`
           }
           id
         }
+        ... on ContentfulContactForm {
+          id
+          content {
+            raw
+          }
+          internal {
+            type
+          }
+        }
       }
     }
   }
