@@ -48,6 +48,11 @@
           margin-left: 2rem;
         }
       }
+      &:last-child {
+        @include tabletP {
+          margin-left: 4rem;
+        }
+      }
     }
     &--active {
       height: calc(100vh - 8rem);
@@ -60,7 +65,9 @@
     font-size: 2rem;
     font-weight: 600;
     transition: $transition-base;
-    &:hover {
+    font-family: $fontFamilyPrimary;
+    &:hover,
+    &--active {
       color: $primaryRed
     }
   }

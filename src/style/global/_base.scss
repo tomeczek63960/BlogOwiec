@@ -16,7 +16,7 @@ body {
   margin: 0;
   text-size-adjust: 100%; // iOS on orientation change
   color: $primaryDark;
-  font-family: $fontFamilyPrimary;
+  font-family: $fontFamilySecondary;
   font-weight: $fontWeightMedium;
   font-size: 1.6rem;
   line-height: 2.3rem;
@@ -30,8 +30,8 @@ body {
   overflow-x: hidden;
   background: $white;
   @include tabletP {
-    font-size: 1.6rem;
-    line-height: 2.1rem;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
   }
   @include deskHD {
     font-size: 2rem;

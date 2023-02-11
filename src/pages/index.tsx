@@ -10,7 +10,6 @@ import {Link, Trans, useTranslation} from 'gatsby-plugin-react-i18next';
 // TODO: update all types
 // TODO: update contentful images & texts
 // TODO: add contact form validations & sample submit method
-// TODO: add google fonts sans serif
 // TODO: optimization - lazy loading - dynamic imports
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data?.contentfulPages

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import Logo from "@components/Logo"
 import { container } from "@style/components/container.module.scss"
-import { header, nav, navList, navListActive, navLink, bars, bars__line, barsActive } from "@style/components/header.module.scss"
-import {Link, useI18next} from 'gatsby-plugin-react-i18next';
+import { header, nav, navList, navListActive, navLink, navLinkActive, bars, bars__line, barsActive } from "@style/components/header.module.scss"
+import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 
 const Header = (props: any) => {
   const [isNavActive, setNavActive] = useState(false)
-  const {languages} = useI18next();
+  const {languages, language} = useI18next();
   const nodes = props?.nav?.nodes
   useEffect(() => {
     const html = document.querySelector("html")
@@ -29,16 +29,16 @@ const Header = (props: any) => {
           {nodes?.map((item: any) => <li key={item.id}>
           <Link
             to={item.url}
-            activeClassName="active"
+            activeClassName={navLinkActive}
             className={navLink}
           >
             {item.title}
           </Link>
           </li>)}
 
-          {languages.map((lng) => (
+          {languages.map((lng) => language !== lng && (
             <li key={lng}>
-              <Link to="/" language={lng}>
+              <Link to="/" language={lng} className={navLink}>
                 {lng}
               </Link>
             </li>
