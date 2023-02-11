@@ -16,7 +16,7 @@ const Template: React.FC<PageProps> = ({pageContext}: any) => {
       </div>
       <Banner content={{image}} />
       {
-        content.map((itemContent: any) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
+        content?.map((itemContent: any) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
       }
     </Layout>
   )
@@ -24,4 +24,4 @@ const Template: React.FC<PageProps> = ({pageContext}: any) => {
 
 export default Template
 
-export const Head: HeadFC = ({pageContext}) => <title>{pageContext.blog.title}</title>
+export const Head: HeadFC = ({pageContext}) => <title>{pageContext?.blog?.title}</title>

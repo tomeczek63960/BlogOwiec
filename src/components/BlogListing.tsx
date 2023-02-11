@@ -3,38 +3,11 @@ import { blogListing, blogListing__content, blogListing__filters, blogListing__f
 import { container } from "@style/components/container.module.scss"
 import PostCard from "@components/PostCard"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { useStaticQuery, graphql } from "gatsby"
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
-const BlogListing: FC = ({content}: any) => {
-  const data = useStaticQuery(graphql`
-    query BlogPosts {
-      posts: allContentfulBlogs(sort: {createdAt: DESC}) {
-        nodes {
-          title
-          slug
-          id
-          category {
-            name
-          }
-          imageCard {
-            gatsbyImageData
-          }
-          shortDescription {
-            shortDescription
-          }
-        }
-      }
-      categories: allContentfulBlogCategory {
-        nodes {
-          id
-          name
-        }
-      }
-    }
-  `)
+const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
   const [animationParent] = useAutoAnimate()
-  const [activePosts, setActivePosts] = useState(data?.posts?.nodes);
+  const [activePosts, setActivePosts] = useState(posts?.nodes);
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const updateActiveCategories = (category: string) => {
     const index = activeCategories.indexOf(category);
@@ -47,10 +20,10 @@ const BlogListing: FC = ({content}: any) => {
   }
   useEffect(() => {
     if (activeCategories.length) {
-      const posts = data?.posts?.nodes.filter((post: any) => activeCategories.includes(post.category.name));
-      setActivePosts(posts);
+      const postsNew = posts?.nodes.filter((post: any) => activeCategories.includes(post.category.name));
+      setActivePosts(postsNew);
     } else {
-      setActivePosts(data?.posts?.nodes);
+      setActivePosts(posts?.nodes);
     }
   }, [activeCategories])
   return (
@@ -58,7 +31,7 @@ const BlogListing: FC = ({content}: any) => {
       <div className={container}>
         {renderRichText(content.content)}
         <div className={blogListing__filters}>
-          {data?.categories.nodes.map((category: any) => 
+          {categories?.nodes.map((category: any) => 
             <button
               className={`${blogListing__filters__item} ${activeCategories.includes(category.name) ? blogListing__filters__itemActive : ''}`}
               key={category.id}

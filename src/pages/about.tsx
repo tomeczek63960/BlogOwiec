@@ -20,8 +20,17 @@ export default AboutPage
 
 // TODO: extract contents query to fragments when gatsby 5 will be stable
 export const query = graphql`
-  query MyQuery {
-    contentfulPages(slug: {eq: "/about"}) {
+  query AboutPageQuery($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    contentfulPages(slug: {eq: "/about"}, node_locale: {eq: $language}) {
       contents {
         ... on ContentfulBanner {
           image {

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
 import Logo from "@components/Logo"
 import { container } from "@style/components/container.module.scss"
 import { header, nav, navList, navListActive, navLink, bars, bars__line, barsActive } from "@style/components/header.module.scss"
+import {Link, useI18next} from 'gatsby-plugin-react-i18next';
 
 const Header = () => {
   const [isNavActive, setNavActive] = useState(false)
+  const {languages} = useI18next();
   const data = useStaticQuery(graphql`
     query {
       allContentfulNav {
@@ -46,6 +47,14 @@ const Header = () => {
             {item.title}
           </Link>
           </li>)}
+
+          {languages.map((lng) => (
+            <li key={lng}>
+              <Link to="/" language={lng}>
+                {lng}
+              </Link>
+            </li>
+          ))}
         </ul>
         <button
           className={`${bars}  ${isNavActive ? barsActive : ""}`}

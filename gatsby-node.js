@@ -1,4 +1,23 @@
 const path = require("path");
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+  type SitePage implements Node {
+    context: SitePageContext
+  }
+  type SitePageContext {
+    i18n: i18nContext
+  }
+  type i18nContext {
+      language: String,
+      languages: [String],
+      defaultLanguage: String,
+      originalPath: String
+      routed: Boolean
+  }
+`)
+}
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -20,6 +39,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
             id
             slug
             title
+            node_locale
             image {
               gatsbyImageData
             }

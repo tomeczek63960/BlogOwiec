@@ -23,6 +23,38 @@ const config: GatsbyConfig = {
         environment: process.env.CONTENTFUL_ENVIRONMENT
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/locales`,
+        name: `locale`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+        languages: [`en`, `pl`],
+        defaultLanguage: `en`,
+        siteUrl: `http://localhost:8000/`,
+        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+        trailingSlash: 'always',
+        // you can pass any i18next options
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false
+          },
+          keySeparator: false,
+          nsSeparator: false
+        },
+        // pages: [
+        //   {
+        //     matchPath: '/:lang?/careers/',
+        //     languages: ['en', 'pl']
+        //   }
+        // ]
+      }
+    }
   ]
 };
 

@@ -8,8 +8,9 @@ import FadeAnimation from "@components/FadeAnimation"
 import ContactForm from "@components/ContactForm"
 import BlogListing from "@components/BlogListing"
 
-const ContentSwitcher: React.FC = ({ content }: any) => {
-  const type: "ContentfulBanner" | "ContentfulText" | "ContentfulParallax" | "ContentfulBlogsReference" | "ContentfulImagesBlock" | "ContentfulContactForm" = content.internal.type
+const ContentSwitcher: React.FC = ({ content, listing }: any) => {
+  const type: "ContentfulBanner" | "ContentfulText" | "ContentfulParallax" | "ContentfulBlogsReference" | "ContentfulImagesBlock" | "ContentfulContactForm" | "ContentfulBlogPosts" = content.internal.type
+  const shouldPassListingProps = content.internal.type === "ContentfulBlogPosts"
   const components = {
     ContentfulBanner: Banner,
     ContentfulText: Introduction,
@@ -22,7 +23,7 @@ const ContentSwitcher: React.FC = ({ content }: any) => {
   const Component = components[type]
   return (
     <FadeAnimation onlyFade={type === "ContentfulParallax"}>
-      <Component content={content} />
+      <Component content={content} listing={shouldPassListingProps ? listing : {}} />
     </FadeAnimation>
   )
 }
