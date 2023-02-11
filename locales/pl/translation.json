@@ -1,3 +1,15 @@
 {
-  "home": "Home page pl"
+  "home": "Home page pl",
+  "form_firstname_label": "Imię",
+  "form_firstname_placeholder": "John",
+  "form_lastname_label": "Nazwisko",
+  "form_lastname_placeholder": "Doe",
+  "form_email_label": "Email",
+  "form_email_placeholder": "johndoe@gmail.com",
+  "form_phone_label": "Telefon",
+  "form_phone_placeholder": "555293852",
+  "form_message_label": "Wiadomość",
+  "form_message_placeholder": "Napisz coś do nas :)",
+  "form_submit": "Wyślij",
+  "form_submit_success": "Wiadomość została wysłana"
 }

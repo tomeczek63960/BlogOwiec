@@ -54,6 +54,16 @@ const config: GatsbyConfig = {
         //   }
         // ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Noto Serif Oriya\:400,500,700`,
+          `Poppins\:700`,
+        ],
+        display: 'swap'
+      }
     }
   ]
 };

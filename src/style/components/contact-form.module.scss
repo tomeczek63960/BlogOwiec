@@ -5,6 +5,10 @@
   @include tabletL {
     margin: $sectionMarginDesktop;
   }
+  &__success {
+    font-weight: $fontWeightBold;
+    color: $success;
+  }
   &__content {
     @include tabletP {
       display: flex;
@@ -60,6 +64,9 @@
     }
     &::placeholder {
       opacity: 0.4;
+    }
+    &--error {
+      border-color: $primaryRed !important;
     }
   }
   &__input {
