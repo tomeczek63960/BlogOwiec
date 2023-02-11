@@ -35,9 +35,9 @@ const SliderCarousel: React.FC = ({content}: any) => {
   return (
     <section className={slider}>
       <div className={container}>
-        {renderRichText(content.content)}
+        {content.content && renderRichText(content.content)}
         <Slider {...settings} className={sliderContent}>
-          {content.blogReference.map((blogPost: any, index: number) => 
+          {content.blogReference?.map((blogPost: any, index: number) => 
             <PostCard key={`blogs-slider-${blogPost.id}`} post={blogPost} />
           )}
         </Slider>

@@ -6,8 +6,9 @@ import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 const ContactPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.contentfulPages
+  const {footer, nav} = data;
   return (
-    <Layout data={data}>
+    <Layout footer={footer} nav={nav}>
       {
         contents?.map((content: any) => <ContentSwitcher content={content} key={content.id}/>)
       }
@@ -28,6 +29,31 @@ export const query = graphql`
           language
         }
       }
+    }
+    nav: allContentfulNav(filter: {node_locale: {eq: $language}, hiddeInNavigation: {eq: false}}, sort: {order: ASC}) {
+      nodes {
+        title
+        url
+        id
+      }
+    }
+    footer: contentfulFooter(node_locale: {eq: $language}) {
+      firstColItems{
+        title
+        url
+        id
+      }
+      firstColTitle
+      facebookUrl
+      secondColItems {
+        title
+        url
+        id
+      }
+      secondColTitle
+      thirdColTitle
+      twitterUrl
+      instagramUrl
     }
     contentfulPages(slug: {eq: "/contact"}, node_locale: {eq: $language}) {
       contents {

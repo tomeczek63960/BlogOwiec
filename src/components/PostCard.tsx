@@ -11,9 +11,9 @@ const PostCard: React.FC = ({post}: any) => {
       className={postCard}
     >
       <GatsbyImage image={image} alt="banner iamge" />
-      <span className={postCard__category}>{post.category.name}</span>
+      <span className={postCard__category}>{post.category?.name}</span>
       <h3>{post.title}</h3>
-      <p>{post.shortDescription.shortDescription}</p>
+      <p>{post.shortDescription?.shortDescription}</p>
     </Link>
   )
 }

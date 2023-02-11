@@ -8,20 +8,17 @@ import {Link, Trans, useTranslation} from 'gatsby-plugin-react-i18next';
 // TODO: add dynamic page & there all content handling functionalities
 // TODO: add transition between pages
 // TODO: update all types
-// TODO: add multilang
 // TODO: update contentful images & texts
 // TODO: add contact form validations & sample submit method
-// TODO: add blog listing filtering custom animation
 // TODO: add google fonts sans serif
-// TODO: add contentful footer
 // TODO: optimization - lazy loading - dynamic imports
 const IndexPage: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data?.contentfulPages
-  console.log(data)
+  const {footer, nav} = data;
   const {t} = useTranslation();
 
   return (
-    <Layout>
+    <Layout footer={footer} nav={nav}>
       <h1>{t('home')} <Trans>home</Trans></h1>
       {
         contents.map((content: any) => <ContentSwitcher content={content} key={content.id}/>)
@@ -43,6 +40,31 @@ export const query = graphql`
           language
         }
       }
+    }
+    nav: allContentfulNav(filter: {node_locale: {eq: $language}, hiddeInNavigation: {eq: false}}, sort: {order: ASC}) {
+      nodes {
+        title
+        url
+        id
+      }
+    }
+    footer: contentfulFooter(node_locale: {eq: $language}) {
+      firstColItems{
+        title
+        url
+        id
+      }
+      firstColTitle
+      facebookUrl
+      secondColItems {
+        title
+        url
+        id
+      }
+      secondColTitle
+      thirdColTitle
+      twitterUrl
+      instagramUrl
     }
     contentfulPages(slug: {eq: "/"}, node_locale: {eq: $language}) {
       contents {

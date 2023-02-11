@@ -73,6 +73,9 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                 blogReference {
                   slug
                   title
+                  category {
+                    name
+                  }
                   imageCard {
                     gatsbyImageData
                   }
