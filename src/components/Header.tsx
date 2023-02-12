@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react"
 import Logo from "@components/Logo"
 import { container } from "@style/components/container.module.scss"
-import { header, nav, navList, navListActive, navLink, navLinkActive, bars, bars__line, barsActive } from "@style/components/header.module.scss"
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { header, nav, navList, header__wrapper, navListActive, navLink, navLinkActive, bars, bars__line, barsActive } from "@style/components/header.module.scss"
+import { useI18next } from 'gatsby-plugin-react-i18next'
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import TransitionLink from "@components/TransitionLink"
 
 const Header = (props: any) => {
   const [isNavActive, setNavActive] = useState(false)
-  const {languages, language, changeLanguage} = useI18next();
+  const {languages, language, changeLanguage, defaultLanguage} = useI18next();
   const nodes = props?.nav?.nodes
   useEffect(() => {
     const html = document.querySelector("html")
@@ -19,36 +21,39 @@ const Header = (props: any) => {
       html.style.height = "auto"
     }
   }, [isNavActive])
-  return <>
+  return <div className={header__wrapper}>
     <header className={header}>
       <nav className={`${container} ${nav}`}>
         <Logo />
         <ul
           className={`${navList} ${isNavActive ? navListActive: ""}`}
         >
-          {nodes?.map((item: any) => <li key={item.id}>
-          <Link
-            to={item.url}
+        
+        {nodes?.map((item: any) => <li key={item.id}>
+          <TransitionLink
+            direction="right"
+            url={item.url}
             activeClassName={navLinkActive}
             className={navLink}
           >
             {item.title}
-          </Link>
-          </li>)}
+          </TransitionLink>
+        </li>
+        )}
 
           {languages.map((lng) => language !== lng && (
             <li key={lng}>
-              <Link
+              <AniLink
                 to="#"
-                onClick={(e) => {
+                cover
+                className={navLink}
+                direction="right"
+                onClick={(e: any) => {
                   e.preventDefault();
                   changeLanguage(lng);
                 }}>
                 {lng}
-              </Link>
-              {/* <Link to="/" language={lng} className={navLink}>
-                {lng}
-              </Link> */}
+              </AniLink>
             </li>
           ))}
         </ul>
@@ -60,7 +65,7 @@ const Header = (props: any) => {
         </button>
       </nav>
     </header>
-  </>
+  </div>
 }
 
 export default Header

@@ -4,7 +4,11 @@ import { graphql } from "gatsby"
 import Layout from "@components/Layout"
 import { Link, useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import { container } from "@style/components/container.module.scss"
-
+import TransitionLink from "@components/TransitionLink"
+{/* <TransitionLink
+url={`/${post.slug}`}
+className={postCard}
+> */}
 const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
   const {footer, nav} = data;
   const {language} = useI18next();
@@ -24,9 +28,9 @@ const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
             </>
           ) : null}
           <br />
-          <Link to="/" language={language}>
+          <TransitionLink url="/" direction="left">
             {t('error_page_link_label')}
-          </Link>
+          </TransitionLink>
         </p>
       </div>
     </Layout>

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { footer, footer__content, footer__col, footer__socials } from "@style/components/footer.module.scss"
 import { container } from "@style/components/container.module.scss"
-import { Link } from "gatsby"
+import TransitionLink from "@components/TransitionLink"
 
 const Footer: React.FC = (props: any) => {
   if (!props?.footer) return <></>;
@@ -14,7 +14,14 @@ const Footer: React.FC = (props: any) => {
             <h4>{firstColTitle}</h4>
             <ul>
               {firstColItems?.map((colItem: any) => 
-                <li key={colItem.id}><Link to={colItem.url}>{colItem.title}</Link></li>
+                <li key={colItem.id}>
+                  <TransitionLink
+                    direction="right"
+                    url={colItem.url}
+                  >
+                    {colItem.title}
+                  </TransitionLink>
+                </li>
               )}
             </ul>
           </div>
@@ -22,7 +29,14 @@ const Footer: React.FC = (props: any) => {
             <h4>{secondColTitle}</h4>
             <ul>
               {secondColItems?.map((colItem: any) => 
-                <li key={colItem.id}><Link to={colItem.url}>{colItem.title}</Link></li>
+                <li key={colItem.id}>
+                  <TransitionLink
+                    direction="right"
+                    url={colItem.url}
+                  >
+                    {colItem.title}
+                  </TransitionLink>
+                </li>
               )}
             </ul>
           </div>

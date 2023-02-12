@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sass",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-transition-link`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-contentful`,

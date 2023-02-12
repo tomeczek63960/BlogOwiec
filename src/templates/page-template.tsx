@@ -5,7 +5,6 @@ import Layout from "@components/Layout"
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 
-// TODO: add transition between pages
 // TODO: update all typescript types
 // TODO: optimization - lazy loading - dynamic imports
 

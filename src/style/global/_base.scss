@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  padding-top: 8rem;
+  // padding-top: 8rem;
   min-height: 100vh;
   margin: 0;
   text-size-adjust: 100%; // iOS on orientation change
@@ -79,3 +79,7 @@ strong {
     }
   }
 }
+
+// .tl-cover-el {
+//   background-color: red !important;
+// }
