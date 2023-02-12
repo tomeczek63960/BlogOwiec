@@ -11,5 +11,9 @@
   "form_message_label": "Message",
   "form_message_placeholder": "Write something to us :)",
   "form_submit": "Submit",
-  "form_submit_success": "Message was sent"
+  "form_submit_success": "Message was sent",
+
+  "error_page_title": "Page not found",
+  "error_page_message": "Sorry 😔, we couldn’t find what you were looking for.",
+  "error_page_link_label": "Go back to home page"
 }

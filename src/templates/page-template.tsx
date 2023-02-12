@@ -4,23 +4,39 @@ import "@style/global/index.scss"
 import Layout from "@components/Layout"
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
-const ContactPage: React.FC<PageProps> = ({data}: any) => {
-  const {contents} = data.contentfulPages
-  const {footer, nav} = data;
+
+// TODO: add transition between pages
+// TODO: update all typescript types
+// TODO: optimization - lazy loading - dynamic imports
+
+const PageTemplate: React.FC<PageProps> = ({data}: any) => {
+  const {contents} = data.page
+  const {footer, nav, categories, posts} = data;
+  const listing = {
+    categories,
+    posts
+  }
   return (
     <Layout footer={footer} nav={nav}>
       {
-        contents?.map((content: any) => <ContentSwitcher content={content} key={content.id}/>)
+        contents?.map((content: any) => <ContentSwitcher listing={listing} content={content} key={content.id}/>)
       }
     </Layout>
   )
 }
 
-export default ContactPage
+export default PageTemplate
 
-// TODO: extract contents query to fragments when gatsby 5 will be stable
+export const Head: HeadFC = ({data}: any) => {
+  const title = data?.page?.title
+  return (
+    <title>{title}</title>
+  )
+}
+
+// TODO: extract contents query to fragments when gatsby 5 ts will support it
 export const query = graphql`
-  query ContactPageQuery($language: String!) {
+  query PageTemplateQuery($language: String!, $slug:String!) {
     locales: allLocale(filter: {language: {eq: $language}}) {
       edges {
         node {
@@ -55,7 +71,8 @@ export const query = graphql`
       twitterUrl
       instagramUrl
     }
-    contentfulPages(slug: {eq: "/contact"}, node_locale: {eq: $language}) {
+    page: contentfulPages(slug: {eq: $slug}, node_locale: {eq: $language}) {
+      title
       contents {
         ... on ContentfulBanner {
           image {
@@ -115,10 +132,40 @@ export const query = graphql`
             type
           }
         }
+        ... on ContentfulBlogPosts {
+          id
+          internal {
+            type
+          }
+          content {
+            raw
+          }
+        }
+      }
+    }
+    posts: allContentfulBlogs(sort: {createdAt: DESC}, filter: {node_locale: {eq: $language}}) {
+      nodes {
+        title
+        slug
+        id
+        node_locale
+        category {
+          name
+        }
+        imageCard {
+          gatsbyImageData
+        }
+        shortDescription {
+          shortDescription
+        }
+      }
+    }
+    categories: allContentfulBlogCategory(filter: {node_locale: {eq: $language}}) {
+      nodes {
+        id
+        name
+        node_locale
       }
     }
   }
 `
-
-
-export const Head: HeadFC = () => <title>Contact Page</title>

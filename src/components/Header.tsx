@@ -6,7 +6,7 @@ import { Link, useI18next } from 'gatsby-plugin-react-i18next';
 
 const Header = (props: any) => {
   const [isNavActive, setNavActive] = useState(false)
-  const {languages, language} = useI18next();
+  const {languages, language, changeLanguage} = useI18next();
   const nodes = props?.nav?.nodes
   useEffect(() => {
     const html = document.querySelector("html")
@@ -38,9 +38,17 @@ const Header = (props: any) => {
 
           {languages.map((lng) => language !== lng && (
             <li key={lng}>
-              <Link to="/" language={lng} className={navLink}>
+              <Link
+                to="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeLanguage(lng);
+                }}>
                 {lng}
               </Link>
+              {/* <Link to="/" language={lng} className={navLink}>
+                {lng}
+              </Link> */}
             </li>
           ))}
         </ul>

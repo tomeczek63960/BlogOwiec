@@ -30,80 +30,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 }
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
-  // TODO: extract contents query to fragments when gatsby 5 will be stable
   const { data } = await graphql(
     `
       {
         blogs: allContentfulBlogs {
           nodes {
-            id
             slug
-            title
-            node_locale
-            image {
-              gatsbyImageData
-            }
-            shortDescription {
-              shortDescription
-            }
-            content {
-              ... on ContentfulImagesBlock {
-                id
-                images {
-                  id
-                  gatsbyImageData
-                }
-                internal {
-                  type
-                }
-              }
-              ... on ContentfulBanner {
-                image {
-                  gatsbyImageData
-                }
-                internal {
-                  type
-                }
-                id
-              }
-              ... on ContentfulBlogsReference {
-                internal {
-                  type
-                }
-                blogReference {
-                  slug
-                  title
-                  category {
-                    name
-                  }
-                  imageCard {
-                    gatsbyImageData
-                  }
-                  shortDescription {
-                    shortDescription
-                  }
-                }
-                id
-              }
-              ... on ContentfulParallax {
-                image {
-                  url
-                }
-                internal {
-                  type
-                }
-                id
-              }
-              ... on ContentfulText {
-                internal {
-                  type
-                }
-                content {
-                  raw
-                }
-                id
-              }
-            }
+          }
+        }
+        pages: allContentfulPages {
+          nodes {
+            slug
           }
         }
       }
@@ -116,9 +53,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     createPage({
       component: path.resolve('./src/templates/blog-post.tsx'),
       context: {
-        blog,
+        slug: blog.slug
       },
       path: `/${blog.slug}`,
+    })
+  })
+  data.pages.nodes.forEach((page) => {
+    createPage({
+      component: path.resolve('./src/templates/page-template.tsx'),
+      context: {
+        slug: page.slug
+      },
+      path: `${page.slug}`,
     })
   })
 }

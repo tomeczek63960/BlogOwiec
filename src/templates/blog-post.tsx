@@ -7,9 +7,9 @@ import Banner from "@components/Banner"
 import { container } from "@style/components/container.module.scss"
 import ContentSwitcher from "@components/ContentSwitcher"
 
-const Template: React.FC<PageProps> = ({pageContext, data}: any) => {
-  const {title, slug, id, image, content, shortDescription} = pageContext.blog
-  const {footer, nav} = data;
+const Template: React.FC<PageProps> = ({data}: any) => {
+  const {footer, nav, blog} = data;
+  const {title, slug, id, image, content, shortDescription} = blog
   return (
     <Layout footer={footer} nav={nav}>
       <div className={container}>
@@ -26,10 +26,10 @@ const Template: React.FC<PageProps> = ({pageContext, data}: any) => {
 
 export default Template
 
-export const Head: HeadFC = ({pageContext}) => <title>{pageContext?.blog?.title}</title>
+export const Head: HeadFC = ({data}: any) => <title>{data?.blog?.title}</title>
 
 export const query = graphql`
-  query HomePageQuery($language: String!) {
+  query BlogPostTemplateQuery($language: String!, $slug:String!) {
     locales: allLocale(filter: {language: {eq: $language}}) {
       edges {
         node {
@@ -64,7 +64,75 @@ export const query = graphql`
       twitterUrl
       instagramUrl
     }
+    blog: contentfulBlogs(slug: {eq: $slug}, node_locale: {eq: $language}) {
+      id
+      slug
+      title
+      node_locale
+      image {
+        gatsbyImageData
+      }
+      shortDescription {
+        shortDescription
+      }
+      content {
+        ... on ContentfulImagesBlock {
+          id
+          images {
+            id
+            gatsbyImageData
+          }
+          internal {
+            type
+          }
+        }
+        ... on ContentfulBanner {
+          image {
+            gatsbyImageData
+          }
+          internal {
+            type
+          }
+          id
+        }
+        ... on ContentfulBlogsReference {
+          internal {
+            type
+          }
+          blogReference {
+            slug
+            title
+            category {
+              name
+            }
+            imageCard {
+              gatsbyImageData
+            }
+            shortDescription {
+              shortDescription
+            }
+          }
+          id
+        }
+        ... on ContentfulParallax {
+          image {
+            url
+          }
+          internal {
+            type
+          }
+          id
+        }
+        ... on ContentfulText {
+          internal {
+            type
+          }
+          content {
+            raw
+          }
+          id
+        }
+      }
+    }
   }
 `
-
-

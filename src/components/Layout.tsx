@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({children, footer, nav}) => {
       <main>
         {children}
       </main>
-    <Footer footer={footer} />
+      <Footer footer={footer} />
     </>
   )
 }

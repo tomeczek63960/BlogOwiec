@@ -11,5 +11,9 @@
   "form_message_label": "Wiadomość",
   "form_message_placeholder": "Napisz coś do nas :)",
   "form_submit": "Wyślij",
-  "form_submit_success": "Wiadomość została wysłana"
+  "form_submit_success": "Wiadomość została wysłana",
+
+  "error_page_title": "Nie znaleziono strony",
+  "error_page_message": "Przepraszamy 😔, nie mogliśmy znaleźć tego, czego szukałeś.",
+  "error_page_link_label": "Wróć do strony głównej"
 }
