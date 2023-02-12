@@ -3,16 +3,16 @@ import { contactForm__group, contactForm__groupSecondary, contactForm__label, co
 
 const InputGroup: React.FC = ({isTextarea, type, label, id, name, placeholder, value, setValue, validation}: any) => {
   const onChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const target = e.target as HTMLInputElement | HTMLTextAreaElement;
-    let isValid = true;
+    const target = e.target as HTMLInputElement | HTMLTextAreaElement
+    let isValid = true
     if (validation) {
-      isValid = validation(target.value);
+      isValid = validation(target.value)
     }
     setValue({
       value: target.value,
       isValid,
       touched: true
-    });
+    })
   }
   return (
     <>
@@ -45,4 +45,4 @@ const InputGroup: React.FC = ({isTextarea, type, label, id, name, placeholder, v
   )
 }
 
-export default InputGroup;
+export default InputGroup

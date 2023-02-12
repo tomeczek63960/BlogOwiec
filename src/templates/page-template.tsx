@@ -10,7 +10,7 @@ import ContentSwitcher from "@components/ContentSwitcher"
 
 const PageTemplate: React.FC<PageProps> = ({data}: any) => {
   const {contents} = data.page
-  const {footer, nav, categories, posts} = data;
+  const {footer, nav, categories, posts} = data
   const listing = {
     categories,
     posts
@@ -26,10 +26,13 @@ const PageTemplate: React.FC<PageProps> = ({data}: any) => {
 
 export default PageTemplate
 
-export const Head: HeadFC = ({data}: any) => {
+export const Head: HeadFC = ({data, pageContext}: any) => {
   const title = data?.page?.title
   return (
-    <title>{title}</title>
+    <>
+      <html lang={pageContext.language} />
+      <title>{title}</title>
+    </>
   )
 }
 

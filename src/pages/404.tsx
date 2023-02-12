@@ -2,17 +2,13 @@ import * as React from "react"
 import { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "@components/Layout"
-import { Link, useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Link, useI18next, useTranslation } from 'gatsby-plugin-react-i18next'
 import { container } from "@style/components/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
-{/* <TransitionLink
-url={`/${post.slug}`}
-className={postCard}
-> */}
+
 const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
-  const {footer, nav} = data;
-  const {language} = useI18next();
-  const {t} = useTranslation();
+  const {footer, nav} = data
+  const {t} = useTranslation()
   return (
     <Layout footer={footer} nav={nav}>
       <div className={container}>
@@ -39,7 +35,10 @@ const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <title>404 Not found</title>
+export const Head: HeadFC = ({pageContext}: any) => <>
+  <html lang={pageContext.language} />
+  <title>404 Not found</title>
+</>
 
 export const query = graphql`
   query ErrorPageQuery($language: String!) {

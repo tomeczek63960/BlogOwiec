@@ -8,7 +8,7 @@ import { container } from "@style/components/container.module.scss"
 import ContentSwitcher from "@components/ContentSwitcher"
 
 const Template: React.FC<PageProps> = ({data}: any) => {
-  const {footer, nav, blog} = data;
+  const {footer, nav, blog} = data
   const {title, slug, id, image, content, shortDescription} = blog
   return (
     <Layout footer={footer} nav={nav}>
@@ -26,7 +26,10 @@ const Template: React.FC<PageProps> = ({data}: any) => {
 
 export default Template
 
-export const Head: HeadFC = ({data}: any) => <title>{data?.blog?.title}</title>
+export const Head: HeadFC = ({data, pageContext}: any) => <>
+  <html lang={pageContext.language} />
+  <title>{data?.blog?.title}</title>
+</>
 
 export const query = graphql`
   query BlogPostTemplateQuery($language: String!, $slug:String!) {

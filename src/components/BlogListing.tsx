@@ -7,23 +7,23 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
   const [animationParent] = useAutoAnimate()
-  const [activePosts, setActivePosts] = useState(posts?.nodes);
-  const [activeCategories, setActiveCategories] = useState<string[]>([]);
+  const [activePosts, setActivePosts] = useState(posts?.nodes)
+  const [activeCategories, setActiveCategories] = useState<string[]>([])
   const updateActiveCategories = (category: string) => {
-    const index = activeCategories.indexOf(category);
+    const index = activeCategories.indexOf(category)
     if (index !== -1) {
-      const newCategories = activeCategories.filter((prevCategory: string) => prevCategory !== category);
+      const newCategories = activeCategories.filter((prevCategory: string) => prevCategory !== category)
       setActiveCategories(newCategories)
     } else {
-      setActiveCategories((prevState: string[]) => [...prevState, category]);
+      setActiveCategories((prevState: string[]) => [...prevState, category])
     }
   }
   useEffect(() => {
     if (activeCategories.length) {
-      const postsNew = posts?.nodes.filter((post: any) => activeCategories.includes(post.category.name));
-      setActivePosts(postsNew);
+      const postsNew = posts?.nodes.filter((post: any) => activeCategories.includes(post.category.name))
+      setActivePosts(postsNew)
     } else {
-      setActivePosts(posts?.nodes);
+      setActivePosts(posts?.nodes)
     }
   }, [activeCategories])
   return (

@@ -4,8 +4,8 @@ import { container } from "@style/components/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
 
 const Footer: React.FC = (props: any) => {
-  if (!props?.footer) return <></>;
-  const {firstColTitle, firstColItems, secondColTitle, secondColItems, thirdColTitle, twitterUrl, facebookUrl, instagramUrl} = props.footer;
+  if (!props?.footer) return <></>
+  const {firstColTitle, firstColItems, secondColTitle, secondColItems, thirdColTitle, twitterUrl, facebookUrl, instagramUrl} = props.footer
   return (
     <footer className={footer}>
       <div className={container}>

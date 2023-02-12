@@ -4,7 +4,7 @@ import { container } from "@style/components/container.module.scss"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import InputGroup from '@components/InputGroup'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next'
 
 export const emailValidation = (email: string):boolean => {
   if (email === "") return false
@@ -45,25 +45,25 @@ const ContactForm: React.FC = ({content}: any) => {
         touched: true
       })
     )
-    return obj.isValid;
+    return obj.isValid
   }
   const checkValidation = (): boolean => {
-    const isFirstNameValid = validateInput(firstName, setFirstName);
-    const isLastNameValid = validateInput(lastName, setLastName);
-    const isEmailValid = validateInput(email, setEmail);
-    const isPhoneValid = validateInput(phone, setPhone);
-    const isMessageValid = validateInput(message, setMessage);
+    const isFirstNameValid = validateInput(firstName, setFirstName)
+    const isLastNameValid = validateInput(lastName, setLastName)
+    const isEmailValid = validateInput(email, setEmail)
+    const isPhoneValid = validateInput(phone, setPhone)
+    const isMessageValid = validateInput(message, setMessage)
 
-    return isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid && isMessageValid;
+    return isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid && isMessageValid
   }
 
   const submit = (e: React.SyntheticEvent) => {
     e.preventDefault()
 
-    const isFormValid = checkValidation();
+    const isFormValid = checkValidation()
 
     if(isFormValid) {
-      resetForm();
+      resetForm()
       setSuccess(true)
       setTimeout(() => setSuccess(false), 4000)
     }

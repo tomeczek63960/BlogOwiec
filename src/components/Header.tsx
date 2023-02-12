@@ -8,7 +8,7 @@ import TransitionLink from "@components/TransitionLink"
 
 const Header = (props: any) => {
   const [isNavActive, setNavActive] = useState(false)
-  const {languages, language, changeLanguage, defaultLanguage} = useI18next();
+  const {languages, language, changeLanguage, defaultLanguage} = useI18next()
   const nodes = props?.nav?.nodes
   useEffect(() => {
     const html = document.querySelector("html")
@@ -49,8 +49,8 @@ const Header = (props: any) => {
                 className={navLink}
                 direction="right"
                 onClick={(e: any) => {
-                  e.preventDefault();
-                  changeLanguage(lng);
+                  e.preventDefault()
+                  changeLanguage(lng)
                 }}>
                 {lng}
               </AniLink>
