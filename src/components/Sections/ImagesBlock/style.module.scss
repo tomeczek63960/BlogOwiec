@@ -1,0 +1,18 @@
+@import '@style/shared/index';
+
+.images-block {
+  &__content {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    picture, img {
+      height: 25rem !important;
+      @include tabletP {
+        height: 40rem !important;
+      }
+      @include tabletL {
+        height: 50rem !important;
+      }
+    }
+  }
+}

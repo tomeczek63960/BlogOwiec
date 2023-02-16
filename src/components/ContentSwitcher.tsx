@@ -1,12 +1,12 @@
 import * as React from "react"
-import Banner from "@components/Banner"
-import Introduction from "@components/Introduction"
-import SliderCarousel from "@components/SliderCarousel"
-import ImagesBlock from "@components/ImagesBlock"
-import Parallax from "@components/Parallax"
+import Banner from "@components/Sections/Banner"
+import Introduction from "@components/Sections/Introduction"
+import SliderCarousel from "@components/Sections/SliderCarousel"
+import ImagesBlock from "@components/Sections/ImagesBlock"
+import Parallax from "@components/Sections/Parallax"
+import ContactForm from "@components/Sections/ContactForm"
+import BlogListing from "@components/Sections/BlogListing"
 import FadeAnimation from "@components/FadeAnimation"
-import ContactForm from "@components/ContactForm"
-import BlogListing from "@components/BlogListing"
 import type {TContentSwitcherProps} from '../types'
 
 const ContentSwitcher: React.FC<TContentSwitcherProps> = ({ content, listing }) => {

@@ -1,0 +1,11 @@
+@import '@style/shared/index';
+
+.slider {
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
+  &-content {
+    overflow: hidden;
+  }
+}

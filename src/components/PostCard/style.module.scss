@@ -1,0 +1,14 @@
+@import '@style/shared/index';
+
+.post-card {
+  h3, p {
+    margin: 1rem 0;
+  }
+  &__category {
+    margin: 1rem 0;
+    display: block;
+    color: $primaryRed;
+    font-family: $fontFamilyPrimary;
+    font-weight: $fontWeightBold;
+  }
+}

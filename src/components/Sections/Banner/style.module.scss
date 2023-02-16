@@ -1,0 +1,8 @@
+@import '@style/shared/index';
+
+.banner {
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
+}

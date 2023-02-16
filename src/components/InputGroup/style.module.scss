@@ -1,0 +1,46 @@
+@import '@style/shared/index';
+
+.contact-form {
+  &__group {
+    margin-bottom: 2rem;
+    @include tabletL {
+      margin-bottom: 0;
+      width: 50%;
+    }
+    &--secondary {
+      width: 100%;
+    }
+  }
+  &__label {
+    margin-bottom: 0.3rem;
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  &__input,
+  &__textarea {
+    width: 100%;
+    border: 0.1rem solid $lightGraySecondary;
+    color: $primaryDark;
+    font-weight: 600;
+    transition: $transition-base;
+    &:focus {
+      border-color: $primaryDark;
+    }
+    &::placeholder {
+      opacity: 0.4;
+    }
+    &--error {
+      border-color: $primaryRed !important;
+    }
+  }
+  &__input {
+    height: 4.5rem;
+    padding: 0 1rem;
+  }
+  &__textarea {
+    padding: 1rem;
+    height: 8rem;
+    resize: none;
+  }
+}

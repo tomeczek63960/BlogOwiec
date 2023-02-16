@@ -3,7 +3,7 @@ import { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "@components/Layout"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { container } from "@style/components/container.module.scss"
+import { container } from "@style/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
 import type {TSharedPageProps, TPageContext} from "../types"
 

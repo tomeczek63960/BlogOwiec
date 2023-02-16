@@ -3,8 +3,8 @@ import type { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import "@style/global/index.scss"
 import Layout from "@components/Layout"
-import Banner from "@components/Banner"
-import { container } from "@style/components/container.module.scss"
+import Banner from "@components/Sections/Banner"
+import { container } from "@style/container.module.scss"
 import ContentSwitcher from "@components/ContentSwitcher"
 import type {TBlogPageDataProps, TPageContent, TPageContext} from "../types";
 

@@ -25,6 +25,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@style": path.resolve(__dirname, "src/style"),
         "@components": path.resolve(__dirname, "src/components"),
         "@images": path.resolve(__dirname, "src/images"),
+        // TODO: add types alias && update imports 
       }
     }
   });
