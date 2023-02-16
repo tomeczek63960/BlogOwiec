@@ -6,8 +6,9 @@ import Layout from "@components/Layout"
 import Banner from "@components/Banner"
 import { container } from "@style/components/container.module.scss"
 import ContentSwitcher from "@components/ContentSwitcher"
+import type {TBlogPageDataProps, TPageContent, TPageContext} from "../types";
 
-const Template: React.FC<PageProps> = ({data}: any) => {
+const Template: React.FC<PageProps<TBlogPageDataProps>> = ({data}) => {
   const {footer, nav, blog} = data
   const {title, slug, id, image, content, shortDescription} = blog
   return (
@@ -18,7 +19,7 @@ const Template: React.FC<PageProps> = ({data}: any) => {
       </div>
       <Banner content={{image}} />
       {
-        content?.map((itemContent: any) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
+        content?.map((itemContent: TPageContent) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
       }
     </Layout>
   )
@@ -26,9 +27,9 @@ const Template: React.FC<PageProps> = ({data}: any) => {
 
 export default Template
 
-export const Head: HeadFC = ({data, pageContext}: any) => <>
+export const Head: HeadFC<TBlogPageDataProps, TPageContext> = ({data, pageContext}) => <>
   <html lang={pageContext.language} />
-  <title>{data?.blog?.title}</title>
+  <title>{data.blog?.title}</title>
 </>
 
 export const query = graphql`

@@ -1,7 +1,8 @@
 import * as React from "react"
 import { contactForm__group, contactForm__groupSecondary, contactForm__label, contactForm__input, contactForm__textarea, contactForm__inputError } from "@style/components/contact-form.module.scss"
+import { TInputGroupProps } from "../types"
 
-const InputGroup: React.FC = ({isTextarea, type, label, id, name, placeholder, value, setValue, validation}: any) => {
+const InputGroup: React.FC<TInputGroupProps> = ({isTextarea, type, label, id, name, placeholder, value, setValue, validation}) => {
   const onChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = e.target as HTMLInputElement | HTMLTextAreaElement
     let isValid = true

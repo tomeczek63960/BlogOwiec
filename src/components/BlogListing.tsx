@@ -4,8 +4,9 @@ import { container } from "@style/components/container.module.scss"
 import PostCard from "@components/PostCard"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import type {TBlogListingProps, TPost, TCategory} from "../types"
 
-const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
+const BlogListing: FC<TBlogListingProps> = ({content, listing: {posts, categories} }) => {
   const [animationParent] = useAutoAnimate()
   const [activePosts, setActivePosts] = useState(posts?.nodes)
   const [activeCategories, setActiveCategories] = useState<string[]>([])
@@ -20,7 +21,7 @@ const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
   }
   useEffect(() => {
     if (activeCategories.length) {
-      const postsNew = posts?.nodes.filter((post: any) => activeCategories.includes(post.category.name))
+      const postsNew = posts?.nodes.filter((post: TPost) => activeCategories.includes(post.category.name))
       setActivePosts(postsNew)
     } else {
       setActivePosts(posts?.nodes)
@@ -31,7 +32,7 @@ const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
       <div className={container}>
         {renderRichText(content.content)}
         <div className={blogListing__filters}>
-          {categories?.nodes.map((category: any) => 
+          {categories?.nodes.map((category: TCategory) => 
             <button
               className={`${blogListing__filters__item} ${activeCategories.includes(category.name) ? blogListing__filters__itemActive : ''}`}
               key={category.id}
@@ -40,7 +41,7 @@ const BlogListing: FC = ({content, listing: {posts, categories} }: any) => {
           )}
         </div>
         <div className={blogListing__content} ref={animationParent}>
-          {activePosts?.map((post: any) => <PostCard key={`blog-listing-${post.id}`} post={post} />)}
+          {activePosts?.map((post: TPost) => <PostCard key={`blog-listing-${post.id}`} post={post} />)}
         </div>
       </div>
     </section>

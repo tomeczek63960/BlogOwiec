@@ -1,9 +1,11 @@
 import * as React from "react"
 import { gsap } from "gsap"
 import {fadeAnimation, fadeAnimationOpacity} from "@style/components/fade-animation.module.scss"
+import type {TFadeAnimationProps} from "../types"
 
-const FadeAnimation: React.FC = ({children, onlyFade}: any) => {
+const FadeAnimation: React.FC<TFadeAnimationProps> = ({children, onlyFade}) => {
   const triggerRef = React.useRef<HTMLDivElement>(null)
+  // TODO: update options type
   React.useEffect(() => {
     const options: any = {
       duration: 0.7,

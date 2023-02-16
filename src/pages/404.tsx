@@ -2,11 +2,12 @@ import * as React from "react"
 import { HeadFC, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "@components/Layout"
-import { Link, useI18next, useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { container } from "@style/components/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
+import type {TSharedPageProps, TPageContext} from "../types"
 
-const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
+const NotFoundPage: React.FC<PageProps<TSharedPageProps>> = ({data}) => {
   const {footer, nav} = data
   const {t} = useTranslation()
   return (
@@ -35,7 +36,7 @@ const NotFoundPage: React.FC<PageProps> = ({data}: any) => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = ({pageContext}: any) => <>
+export const Head: HeadFC<TSharedPageProps, TPageContext> = ({pageContext}) => <>
   <html lang={pageContext.language} />
   <title>404 Not found</title>
 </>

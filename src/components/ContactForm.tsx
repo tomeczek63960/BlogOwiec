@@ -4,7 +4,8 @@ import { container } from "@style/components/container.module.scss"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import InputGroup from '@components/InputGroup'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { TContactFormProps, TFormInitialValue } from "../types"
 
 export const emailValidation = (email: string):boolean => {
   if (email === "") return false
@@ -22,7 +23,7 @@ const inputInitialValue = {
   touched: false
 }
 
-const ContactForm: React.FC = ({content}: any) => {
+const ContactForm: React.FC<TContactFormProps> = ({content}) => {
   const [firstName, setFirstName] = React.useState(inputInitialValue)
   const [lastName, setLastName] = React.useState(inputInitialValue)
   const [email, setEmail] = React.useState(inputInitialValue)
@@ -39,8 +40,8 @@ const ContactForm: React.FC = ({content}: any) => {
     setPhone(inputInitialValue)
     setMessage(inputInitialValue)
   }
-  const validateInput = (obj: any, setObj: Function): boolean => {
-    setObj((prevObj: any) => ({
+  const validateInput = (obj: TFormInitialValue, setObj: Function): boolean => {
+    setObj((prevObj: TFormInitialValue) => ({
         ...prevObj,
         touched: true
       })

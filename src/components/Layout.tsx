@@ -3,13 +3,9 @@ import Header from "@components/Header"
 import Footer from "@components/Footer"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-interface Props {
-  children: React.ReactNode;
-  nav: any;
-  footer: any
-}
+import { TLayoutProps } from "../types"
 
-const Layout: React.FC<Props> = ({children, footer, nav}) => {
+const Layout: React.FC<TLayoutProps> = ({children, footer, nav}) => {
   gsap.registerPlugin(ScrollTrigger)
   return (
     <>

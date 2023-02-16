@@ -2,8 +2,9 @@ import * as React from "react"
 import { footer, footer__content, footer__col, footer__socials } from "@style/components/footer.module.scss"
 import { container } from "@style/components/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
+import type {TFooter, TFooterCol} from "../types"
 
-const Footer: React.FC = (props: any) => {
+const Footer: React.FC<TFooter> = (props) => {
   if (!props?.footer) return <></>
   const {firstColTitle, firstColItems, secondColTitle, secondColItems, thirdColTitle, twitterUrl, facebookUrl, instagramUrl} = props.footer
   return (
@@ -13,7 +14,7 @@ const Footer: React.FC = (props: any) => {
           <div className={footer__col}>
             <h4>{firstColTitle}</h4>
             <ul>
-              {firstColItems?.map((colItem: any) => 
+              {firstColItems?.map((colItem: TFooterCol) => 
                 <li key={colItem.id}>
                   <TransitionLink
                     direction="right"
@@ -28,7 +29,7 @@ const Footer: React.FC = (props: any) => {
           <div className={footer__col}>
             <h4>{secondColTitle}</h4>
             <ul>
-              {secondColItems?.map((colItem: any) => 
+              {secondColItems?.map((colItem: TFooterCol) => 
                 <li key={colItem.id}>
                   <TransitionLink
                     direction="right"

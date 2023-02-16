@@ -5,8 +5,9 @@ import { header, nav, navList, header__wrapper, navListActive, navLink, navLinkA
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import TransitionLink from "@components/TransitionLink"
+import type {TNav, TNavItem} from "../types"
 
-const Header = (props: any) => {
+const Header: React.FC<TNav> = (props) => {
   const [isNavActive, setNavActive] = useState(false)
   const {languages, language, changeLanguage, defaultLanguage} = useI18next()
   const nodes = props?.nav?.nodes
@@ -29,7 +30,7 @@ const Header = (props: any) => {
           className={`${navList} ${isNavActive ? navListActive: ""}`}
         >
         
-        {nodes?.map((item: any) => <li key={item.id}>
+        {nodes?.map((item: TNavItem) => <li key={item.id}>
           <TransitionLink
             direction="right"
             url={item.url}
@@ -48,7 +49,7 @@ const Header = (props: any) => {
                 cover
                 className={navLink}
                 direction="right"
-                onClick={(e: any) => {
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault()
                   changeLanguage(lng)
                 }}>

@@ -1,14 +1,13 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import type { HeadFC ,PageProps } from "gatsby"
 import "@style/global/index.scss"
 import Layout from "@components/Layout"
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
-
 // TODO: update all typescript types
 // TODO: optimization - lazy loading - dynamic imports
-
-const PageTemplate: React.FC<PageProps> = ({data}: any) => {
+import type {TPageDataProps, TPageContent, TPageContext} from "../types";
+const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
   const {contents} = data.page
   const {footer, nav, categories, posts} = data
   const listing = {
@@ -18,7 +17,7 @@ const PageTemplate: React.FC<PageProps> = ({data}: any) => {
   return (
     <Layout footer={footer} nav={nav}>
       {
-        contents?.map((content: any) => <ContentSwitcher listing={listing} content={content} key={content.id}/>)
+        contents?.map((content: TPageContent) => <ContentSwitcher listing={listing} content={content} key={content.id}/>)
       }
     </Layout>
   )
@@ -26,8 +25,8 @@ const PageTemplate: React.FC<PageProps> = ({data}: any) => {
 
 export default PageTemplate
 
-export const Head: HeadFC = ({data, pageContext}: any) => {
-  const title = data?.page?.title
+export const Head: HeadFC<TPageDataProps, TPageContext> = ({data, pageContext}) => {
+  const title = data.page.title
   return (
     <>
       <html lang={pageContext.language} />
@@ -95,6 +94,7 @@ export const query = graphql`
           blogReference {
             slug
             title
+            node_locale
             category {
               name
             }

@@ -7,8 +7,9 @@ import Parallax from "@components/Parallax"
 import FadeAnimation from "@components/FadeAnimation"
 import ContactForm from "@components/ContactForm"
 import BlogListing from "@components/BlogListing"
+import type {TContentSwitcherProps} from '../types'
 
-const ContentSwitcher: React.FC = ({ content, listing }: any) => {
+const ContentSwitcher: React.FC<TContentSwitcherProps> = ({ content, listing }) => {
   const type: "ContentfulBanner" | "ContentfulText" | "ContentfulParallax" | "ContentfulBlogsReference" | "ContentfulImagesBlock" | "ContentfulContactForm" | "ContentfulBlogPosts" = content.internal.type
   const shouldPassListingProps = content.internal.type === "ContentfulBlogPosts"
   const components = {
