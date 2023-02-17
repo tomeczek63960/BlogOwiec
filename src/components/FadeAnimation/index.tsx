@@ -1,7 +1,7 @@
 import * as React from "react"
 import { gsap } from "gsap"
 import { fadeAnimation, fadeAnimationOpacity } from "./style.module.scss"
-import type { TFadeAnimationProps } from "../../types"
+import type { TFadeAnimationProps } from "./types"
 
 const FadeAnimation: React.FC<TFadeAnimationProps> = ({children, onlyFade}) => {
   const triggerRef = React.useRef<HTMLDivElement>(null)

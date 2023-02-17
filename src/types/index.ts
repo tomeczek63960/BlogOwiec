@@ -1,164 +1,16 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
-import { ContentfulRichTextGatsbyReference, RenderRichTextData } from "gatsby-source-contentful/rich-text";
 
-// FORM TYPES
-export type TFormInitialValue = {
-  value: string;
-  isValid: boolean;
-  touched: boolean
-}
-export type TInputGroupProps = {
-  id: string;
-  name: string;
-  value: TFormInitialValue;
-  setValue: Function;
-  isTextarea?: boolean;
-  type?: string;
-  label?: string;
-  placeholder?: string;
-  validation?: Function;
-}
+import { TBanner } from "@components/Sections/Banner/types"
+import { TPost, TCategory, TListingProps, TBlogPosts } from "@components/Sections/BlogListing/types"
+import { TImagesBlock } from "@components/Sections/ImagesBlock/types"
+import { TText } from "@components/Sections/Introduction/types"
+import { TParallax } from "@components/Sections/Parallax/types"
+import { TBlogReference } from "@components/Sections/SliderCarousel/types"
+import { TContactForm } from "@components/Sections/ContactForm/types"
+import { TFooter } from "@components/Footer/types"
+import { TNav } from "@components/Header/types"
 
-// CONTENTFUL OBJECTS TYPES
-export type TFooterCol = {
-  title: string;
-  url: string;
-  id: string;
-}
-export type TCategory = {
-  id: string;
-  name: string;
-  node_locale: string;
-}
-export type TNavItem = {
-  title: string;
-  url: string;
-  id: string;
-}
-export type TPost = {
-  title: string;
-  slug: string;
-  id: string;
-  node_locale: string;
-  category: {
-    name: string;
-  };
-  imageCard: {
-    gatsbyImageData: IGatsbyImageData;
-  };
-  shortDescription: {
-    shortDescription: string;
-  };
-}
-export type TBanner = {
-  image: {
-    gatsbyImageData: IGatsbyImageData;
-  };
-  internal: {
-    type: "ContentfulBanner";
-  },
-  id: string;
-}
-export type TText = {
-  internal: {
-    type: "ContentfulText";
-  };
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-  id: string;
-}
-export type TParallax = {
-  image: {
-    url: string;
-  };
-  internal: {
-    type: "ContentfulParallax";
-  };
-  id: string;
-}
-export type TBlogReference = {
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-  internal: {
-    type: "ContentfulBlogsReference";
-  },
-  blogReference: TPost[];
-  id: string;
-}
-export type TBlogPosts = {
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-  internal: {
-    type: "ContentfulBlogPosts";
-  },
-  id: string;
-}
-export type TImagesBlockItem = {
-  id: string,
-  gatsbyImageData: IGatsbyImageData;
-};
-export type TImagesBlock = {
-  id: string;
-  images: TImagesBlockItem[];
-  internal: {
-    type: "ContentfulImagesBlock";
-  };
-};
-export type TContactForm = {
-  id: string;
-  content: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-  internal: {
-    type: "ContentfulContactForm"
-  }
-}
-// XXX--- CONTENTFUL OBJECTS TYPES ---XXX
-
-// TYPES FOR COMPONENTS PROPS
-export type TPropsBanner = {
-  content: TBanner;
-}
-type TListingProps = {
-  posts: {
-    nodes: TPost[]
-  };
-  categories: {
-    nodes: TCategory[]
-  };
-}
-export type TBlogListingProps = {
-  content: TBlogPosts;
-  listing: TListingProps;
-}
-export type TImagesBlockProps = {
-  content: TImagesBlock;
-}
-export type TTextProps = {
-  content: TText;
-}
-export type TParallaxProps = {
-  content: TParallax;
-}
-export type TPostCardProps = {
-  post: TPost;
-}
-export type TBlogReferenceProps = {
-  content: TBlogReference;
-}
-export type TFadeAnimationProps = {
-  children: React.ReactNode;
-  onlyFade?: boolean;
-}
-export type TTransitionLinkProps = {
-  children: React.ReactNode;
-  direction?: string;
-  activeClassName?: string;
-  className?: string;
-  url: string;
-  click?: Function
-}
-export type TContactFormProps = {
-  content: TContactForm;
-}
-// XXX--- TYPES FOR COMPONENTS PROPS ---XXX
-
-// PAGES PROPS & CONTENT OPTIONS & CONTEXT
+// PAGE | BLOG TEMPLATE TYPES & PAGE CONTEXT TYPES & CONTENT SWITCHER TYPES
 export type TPageContext = {
   slug: string;
   language: string;
@@ -172,35 +24,12 @@ export type TPageContext = {
     path: string;
   }
 }
-export type TPageContent = TBanner | TText | TParallax | TBlogReference | TImagesBlock | TBlogPosts;
-export type TPageContents = (TBanner | TText | TParallax | TBlogReference | TImagesBlock | TBlogPosts)[];
+export type TPageContent = TBanner | TText | TParallax | TBlogReference | TImagesBlock | TBlogPosts | TContactForm;
+export type TPageContents = (TBanner | TText | TParallax | TBlogReference | TImagesBlock | TBlogPosts | TContactForm)[];
 
 export type TContentSwitcherProps = {
   content: TPageContent;
-  listing: TListingProps;
-}
-
-export type TLayoutProps = {
-  children: React.ReactNode;
-  nav: TNav;
-  footer: TFooter
-}
-export type TFooter = {
-  footer: {
-    firstColItems: TFooterCol[];
-    firstColTitle: string;
-    facebookUrl: string;
-    secondColItems: TFooterCol[];
-    secondColTitle: string;
-    thirdColTitle: string;
-    twitterUrl: string;
-    instagramUrl: string;
-  }
-}
-export type TNav = {
-  nav: {
-    nodes: TNavItem[];
-  }
+  listing?: TListingProps;
 }
 
 export type TSharedPageProps = TFooter & TNav;
@@ -231,4 +60,3 @@ export type TBlogPageDataProps = TSharedPageProps & {
     content: TPageContents
   };
 }
-// XXX--- PAGES PROPS & CONTENT OPTIONS & CONTEXT ---XXX

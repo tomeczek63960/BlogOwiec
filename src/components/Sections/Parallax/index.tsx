@@ -1,7 +1,7 @@
 import * as React from "react"
 import { parallax, parallax__image } from "./style.module.scss"
 import { container } from "@style/container.module.scss"
-import { TParallaxProps } from "../../../types"
+import { TParallaxProps } from "./types"
 
 const Parallax: React.FC<TParallaxProps> = ({content}) => {
   return (

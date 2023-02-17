@@ -4,9 +4,11 @@ import { container } from "@style/container.module.scss"
 import PostCard from "@components/PostCard"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import type {TBlogListingProps, TPost, TCategory} from "../../../types"
+import type { TBlogListingProps, TPost, TCategory } from "./types"
 
-const BlogListing: FC<TBlogListingProps> = ({content, listing: {posts, categories} }) => {
+const BlogListing: FC<TBlogListingProps> = ({content, listing}) => {
+  const posts = listing?.posts;
+  const categories = listing?.categories;
   const [animationParent] = useAutoAnimate()
   const [activePosts, setActivePosts] = useState(posts?.nodes)
   const [activeCategories, setActiveCategories] = useState<string[]>([])

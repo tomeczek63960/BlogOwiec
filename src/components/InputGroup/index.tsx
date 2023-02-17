@@ -1,6 +1,6 @@
 import * as React from "react"
 import { contactForm__group, contactForm__groupSecondary, contactForm__label, contactForm__input, contactForm__textarea, contactForm__inputError } from "./style.module.scss"
-import { TInputGroupProps } from "../../types"
+import { TInputGroupProps } from "./types"
 
 const InputGroup: React.FC<TInputGroupProps> = ({isTextarea, type, label, id, name, placeholder, value, setValue, validation}) => {
   const onChange = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,7 +24,7 @@ const InputGroup: React.FC<TInputGroupProps> = ({isTextarea, type, label, id, na
             name={name}
             id={id}
             className={`${contactForm__textarea} ${!value.isValid && value.touched && contactForm__inputError}`}
-            placeholder={placeholder}
+            placeholder={placeholder || ""}
             value={value.value}
             onChange={onChange}
           ></textarea>
@@ -36,7 +36,7 @@ const InputGroup: React.FC<TInputGroupProps> = ({isTextarea, type, label, id, na
             className={`${contactForm__input} ${!value.isValid && value.touched && contactForm__inputError}`}
             type={type}
             id={id}
-            placeholder={placeholder}
+            placeholder={placeholder || ""}
             value={value.value}
             onChange={onChange}
           />

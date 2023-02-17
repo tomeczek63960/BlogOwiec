@@ -4,9 +4,9 @@ import "@style/global/index.scss"
 import Layout from "@components/Layout"
 import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
-// TODO: update all typescript types
-// TODO: optimization - lazy loading - dynamic imports
-import type {TPageDataProps, TPageContent, TPageContext} from "../types";
+import type { TPageDataProps, TPageContent, TPageContext } from "../types";
+
+// TODO: update seo for pages
 const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
   const {contents} = data.page
   const {footer, nav, categories, posts} = data

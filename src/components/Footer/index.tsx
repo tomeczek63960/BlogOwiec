@@ -2,7 +2,7 @@ import * as React from "react"
 import { footer, footer__content, footer__col, footer__socials } from "./style.module.scss"
 import { container } from "@style/container.module.scss"
 import TransitionLink from "@components/TransitionLink"
-import type { TFooter, TFooterCol } from "../../types"
+import type { TFooter, TFooterCol } from "./types"
 
 const Footer: React.FC<TFooter> = (props) => {
   if (!props?.footer) return <></>

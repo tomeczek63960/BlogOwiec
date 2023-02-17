@@ -4,7 +4,9 @@ import { container } from "@style/container.module.scss"
 import Slider from "react-slick"
 import PostCard from "@components/PostCard"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { TBlogReferenceProps, TPost } from "../../../types"
+import { TBlogReferenceProps } from "./types"
+import { TPost } from "@components/Sections/BlogListing/types";
+
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 

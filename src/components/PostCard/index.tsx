@@ -2,7 +2,7 @@ import * as React from "react"
 import { postCard, postCard__category } from "./style.module.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import TransitionLink from "@components/TransitionLink"
-import { TPostCardProps } from "../../types"
+import { TPostCardProps } from "./types"
 
 const PostCard: React.FC<TPostCardProps> = ({post}) => {
   const image = getImage(post.imageCard)

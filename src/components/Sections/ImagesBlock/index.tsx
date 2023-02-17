@@ -2,7 +2,7 @@ import * as React from "react"
 import { imagesBlock, imagesBlock__content } from "./style.module.scss"
 import { container } from "@style/container.module.scss"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import type {TImagesBlockProps, TImagesBlockItem} from "../../../types"
+import type { TImagesBlockProps, TImagesBlockItem } from "./types"
 
 const ImagesBlock: React.FC<TImagesBlockProps> = ({content}) => {
   return (

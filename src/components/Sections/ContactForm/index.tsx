@@ -5,7 +5,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import InputGroup from '@components/InputGroup'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { TContactFormProps, TFormInitialValue } from "../../../types"
+import { TContactFormProps, TFormInitialValue } from "./types"
 
 export const emailValidation = (email: string):boolean => {
   if (email === "") return false

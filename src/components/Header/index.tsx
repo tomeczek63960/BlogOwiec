@@ -5,7 +5,7 @@ import { header, nav, navList, header__wrapper, navListActive, navLink, navLinkA
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import TransitionLink from "@components/TransitionLink"
-import type {TNav, TNavItem} from "../../types"
+import type { TNav, TNavItem } from "./types"
 
 const Header: React.FC<TNav> = (props) => {
   const [isNavActive, setNavActive] = useState(false)

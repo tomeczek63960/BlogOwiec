@@ -6,7 +6,7 @@ import Layout from "@components/Layout"
 import Banner from "@components/Sections/Banner"
 import { container } from "@style/container.module.scss"
 import ContentSwitcher from "@components/ContentSwitcher"
-import type {TBlogPageDataProps, TPageContent, TPageContext} from "../types";
+import type { TBlogPageDataProps, TPageContent, TPageContext } from "../types";
 
 const Template: React.FC<PageProps<TBlogPageDataProps>> = ({data}) => {
   const {footer, nav, blog} = data
@@ -17,7 +17,7 @@ const Template: React.FC<PageProps<TBlogPageDataProps>> = ({data}) => {
         <h1>{title}</h1>
         <p>{shortDescription.shortDescription}</p>
       </div>
-      <Banner content={{image}} />
+      <Banner content={{image, id, internal: {type: "ContentfulBanner"}}} />
       {
         content?.map((itemContent: TPageContent) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
       }
