@@ -6,7 +6,6 @@ import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 import type { TPageDataProps, TPageContent, TPageContext } from "../types";
 
-// TODO: update seo for pages
 const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
   const {contents} = data.page
   const {footer, nav, categories, posts} = data
@@ -26,11 +25,12 @@ const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
 export default PageTemplate
 
 export const Head: HeadFC<TPageDataProps, TPageContext> = ({data, pageContext}) => {
-  const title = data.page.title
+  const { title, seoDescription } = data?.page
   return (
     <>
       <html lang={pageContext.language} />
-      <title>{title}</title>
+      <title>{title || "BlogOwiec"}</title>
+      <meta name='description' content={seoDescription?.seoDescription || "BlogOwiec"} />
     </>
   )
 }
@@ -74,6 +74,9 @@ export const query = graphql`
     }
     page: contentfulPages(slug: {eq: $slug}, node_locale: {eq: $language}) {
       title
+      seoDescription {
+        seoDescription
+      }
       contents {
         ... on ContentfulBanner {
           image {

@@ -15,5 +15,7 @@
 
   "error_page_title": "Page not found",
   "error_page_message": "Sorry 😔, we couldn’t find what you were looking for.",
-  "error_page_link_label": "Go back to home page"
+  "error_page_link_label": "Go back to home page",
+  "page_not_found_title": "Error 404",
+  "page_not_found": "Sorry 😔, we couldn’t find what you were looking for."
 }

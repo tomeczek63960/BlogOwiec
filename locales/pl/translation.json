@@ -15,5 +15,7 @@
 
   "error_page_title": "Nie znaleziono strony",
   "error_page_message": "Przepraszamy 😔, nie mogliśmy znaleźć tego, czego szukałeś.",
-  "error_page_link_label": "Wróć do strony głównej"
+  "error_page_link_label": "Wróć do strony głównej",
+  "page_not_found_title": "Error 404",
+  "page_not_found_description": "Przepraszamy 😔, nie mogliśmy znaleźć tego, czego szukałeś."
 }

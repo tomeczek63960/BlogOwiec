@@ -27,10 +27,14 @@ const Template: React.FC<PageProps<TBlogPageDataProps>> = ({data}) => {
 
 export default Template
 
-export const Head: HeadFC<TBlogPageDataProps, TPageContext> = ({data, pageContext}) => <>
-  <html lang={pageContext.language} />
-  <title>{data.blog?.title}</title>
-</>
+export const Head: HeadFC<TBlogPageDataProps, TPageContext> = ({data, pageContext}) => {
+  const { title, shortDescription } = data?.blog
+  return <>
+    <html lang={pageContext.language} />
+    <title>{title || "BlogOwiec"}</title>
+    <meta name='description' content={shortDescription?.shortDescription || "BlogOwiec"} />
+  </>
+}
 
 export const query = graphql`
   query BlogPostTemplateQuery($language: String!, $slug:String!) {

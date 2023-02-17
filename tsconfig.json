@@ -99,6 +99,7 @@
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "paths": {
       "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"]
     },
   },
   "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*", "declaration.d.ts"]

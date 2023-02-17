@@ -36,10 +36,15 @@ const NotFoundPage: React.FC<PageProps<TSharedPageProps>> = ({data}) => {
 
 export default NotFoundPage
 
-export const Head: HeadFC<TSharedPageProps, TPageContext> = ({pageContext}) => <>
-  <html lang={pageContext.language} />
-  <title>404 Not found</title>
-</>
+export const Head: HeadFC<TSharedPageProps, TPageContext> = ({pageContext}) => {
+  const {t} = useTranslation();
+
+  return <>
+    <html lang={pageContext.language} />
+    <title>{t('page_not_found_title')}</title>
+    <meta name='description' content={t('page_not_found_description') || "Page not Found"} />
+  </>
+}
 
 export const query = graphql`
   query ErrorPageQuery($language: String!) {

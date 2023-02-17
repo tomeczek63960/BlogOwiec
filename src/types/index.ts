@@ -36,13 +36,16 @@ export type TSharedPageProps = TFooter & TNav;
 export type TPageDataProps = TSharedPageProps & {
   page: {
     title: string;
+    seoDescription: {
+      seoDescription: string;
+    };
     contents: TPageContents;
   };
   posts: {
-    nodes: TPost[]
+    nodes: TPost[];
   };
   categories: {
-    nodes: TCategory[]
+    nodes: TCategory[];
   };
 }
 export type TBlogPageDataProps = TSharedPageProps & {
@@ -52,7 +55,7 @@ export type TBlogPageDataProps = TSharedPageProps & {
     title: string;
     node_locale: string;
     image: {
-        gatsbyImageData: IGatsbyImageData;
+      gatsbyImageData: IGatsbyImageData;
     };
     shortDescription: {
       shortDescription: string;
