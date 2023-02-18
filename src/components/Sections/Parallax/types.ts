@@ -1,6 +1,8 @@
+import { IGatsbyImageData } from "gatsby-plugin-image"
+
 export type TParallax = {
   image: {
-    url: string;
+    gatsbyImageData: IGatsbyImageData;
   };
   internal: {
     type: "ContentfulParallax";

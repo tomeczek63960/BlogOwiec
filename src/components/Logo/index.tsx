@@ -16,6 +16,7 @@ const Logo = () => {
         alt="A dinosaur"
         placeholder="blurred"
         layout="constrained"
+        width={70}
       />
     </TransitionLink>
   )

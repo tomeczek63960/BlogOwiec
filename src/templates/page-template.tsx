@@ -115,7 +115,7 @@ export const query = graphql`
         }
         ... on ContentfulParallax {
           image {
-            url
+            gatsbyImageData
           }
           internal {
             type
