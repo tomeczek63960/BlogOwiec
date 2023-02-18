@@ -9,7 +9,7 @@ import BlogListing from "@components/Sections/BlogListing"
 import FadeAnimation from "@components/FadeAnimation"
 import type { TContentSwitcherProps } from '@src/types'
 
-const ContentSwitcher: React.FC<TContentSwitcherProps> = ({ content, listing }) => {
+const ContentSwitcher: React.FC<TContentSwitcherProps> = ({ content, listing, critical }) => {
   const type: "ContentfulBanner" | "ContentfulText" | "ContentfulParallax" | "ContentfulBlogsReference" | "ContentfulImagesBlock" | "ContentfulContactForm" | "ContentfulBlogPosts" = content.internal.type
   const shouldPassListingProps = content.internal.type === "ContentfulBlogPosts"
   const components = {
@@ -23,7 +23,7 @@ const ContentSwitcher: React.FC<TContentSwitcherProps> = ({ content, listing }) 
   }
   const Component: React.FC<TContentSwitcherProps> = components[type] as React.FC<TContentSwitcherProps>
   return (
-    <FadeAnimation onlyFade={type === "ContentfulParallax"}>
+    <FadeAnimation onlyFade={type === "ContentfulParallax"} critical={critical || false}>
       <Component content={content} listing={shouldPassListingProps ? listing : undefined} />
     </FadeAnimation>
   )

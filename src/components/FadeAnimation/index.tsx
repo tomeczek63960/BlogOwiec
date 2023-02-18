@@ -3,7 +3,7 @@ import { gsap } from "gsap"
 import { fadeAnimation, fadeAnimationOpacity } from "./style.module.scss"
 import type { TFadeAnimationProps } from "./types"
 
-const FadeAnimation: React.FC<TFadeAnimationProps> = ({children, onlyFade}) => {
+const FadeAnimation: React.FC<TFadeAnimationProps> = ({children, onlyFade, critical}) => {
   const triggerRef = React.useRef<HTMLDivElement>(null)
   // TODO: update options type
   React.useEffect(() => {
@@ -25,7 +25,7 @@ const FadeAnimation: React.FC<TFadeAnimationProps> = ({children, onlyFade}) => {
     gsap.to(triggerRef.current, options)
   }, [])
   return (
-    <div className={`${fadeAnimation} ${onlyFade && fadeAnimationOpacity}`} ref={triggerRef}>
+    <div className={`${!critical && fadeAnimation} ${(onlyFade) && fadeAnimationOpacity}`} ref={!critical ? triggerRef : null}>
       {children}
     </div>
   )

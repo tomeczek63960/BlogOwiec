@@ -19,7 +19,7 @@ const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
   return (
     <Layout footer={footer} nav={nav}>
       {
-        contents?.map((content: TPageContent) => <ContentSwitcher listing={listing} content={content} key={content.id}/>)
+        contents?.map((content: TPageContent, index: number) => <ContentSwitcher critical={index === 0 || index === 1}  listing={listing} content={content} key={content.id}/>)
       }
     </Layout>
   )
@@ -83,7 +83,7 @@ export const query = graphql`
       contents {
         ... on ContentfulBanner {
           image {
-            gatsbyImageData
+            gatsbyImageData(width: 1000)
           }
           internal {
             type
@@ -105,7 +105,7 @@ export const query = graphql`
               name
             }
             imageCard {
-              gatsbyImageData
+              gatsbyImageData(width: 330)
             }
             shortDescription {
               shortDescription
@@ -115,7 +115,7 @@ export const query = graphql`
         }
         ... on ContentfulParallax {
           image {
-            gatsbyImageData
+            gatsbyImageData(width: 1300)
           }
           internal {
             type
@@ -161,7 +161,7 @@ export const query = graphql`
           name
         }
         imageCard {
-          gatsbyImageData
+          gatsbyImageData(width: 330)
         }
         shortDescription {
           shortDescription

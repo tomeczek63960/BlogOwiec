@@ -30,6 +30,7 @@ export type TPageContents = (TBanner | TText | TParallax | TBlogReference | TIma
 export type TContentSwitcherProps = {
   content: TPageContent;
   listing?: TListingProps;
+  critical?: boolean;
 }
 
 export type TSharedPageProps = TFooter & TNav;

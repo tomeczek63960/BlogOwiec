@@ -19,7 +19,7 @@ const Template: React.FC<PageProps<TBlogPageDataProps>> = ({data}) => {
       </div>
       <Banner content={{image, id, internal: {type: "ContentfulBanner"}}} />
       {
-        content?.map((itemContent: TPageContent) => <ContentSwitcher content={itemContent} key={itemContent.id}/>)
+        content?.map((itemContent: TPageContent, index: number) => <ContentSwitcher critical={index === 0 || index === 1} content={itemContent} key={itemContent.id}/>)
       }
     </Layout>
   )
@@ -78,7 +78,7 @@ export const query = graphql`
       title
       node_locale
       image {
-        gatsbyImageData
+        gatsbyImageData(width: 1000)
       }
       shortDescription {
         shortDescription
@@ -96,7 +96,7 @@ export const query = graphql`
         }
         ... on ContentfulBanner {
           image {
-            gatsbyImageData
+            gatsbyImageData(width: 1000)
           }
           internal {
             type
@@ -114,7 +114,7 @@ export const query = graphql`
               name
             }
             imageCard {
-              gatsbyImageData
+              gatsbyImageData(width: 330)
             }
             shortDescription {
               shortDescription
@@ -124,7 +124,7 @@ export const query = graphql`
         }
         ... on ContentfulParallax {
           image {
-            gatsbyImageData
+            gatsbyImageData(width: 1300)
           }
           internal {
             type
