@@ -15,14 +15,14 @@
     margin-bottom: 0.3rem;
     display: block;
     cursor: pointer;
-    font-weight: 600;
+    font-family: $fontFamilySecondaryBold;
   }
   &__input,
   &__textarea {
     width: 100%;
     border: 0.1rem solid $lightGraySecondary;
     color: $primaryDark;
-    font-weight: 600;
+    font-family: $fontFamilySecondaryMedium;
     transition: $transition-base;
     &:focus {
       border-color: $primaryDark;

@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Gatsby`,
+    title: `BlogOwiec`,
     siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -56,16 +56,16 @@ const config: GatsbyConfig = {
         // ]
       }
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Noto Serif Oriya\:400,500,700`,
-          `Poppins\:700`,
-        ],
-        display: 'swap'
-      }
-    }
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `Noto Serif Oriya\:400,500,700`,
+    //       `Poppins\:700`,
+    //     ],
+    //     display: 'swap'
+    //   }
+    // }
   ]
 };
 

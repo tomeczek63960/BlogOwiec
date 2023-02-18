@@ -6,6 +6,9 @@ import { graphql } from "gatsby"
 import ContentSwitcher from "@components/ContentSwitcher"
 import type { TPageDataProps, TPageContent, TPageContext } from "../types";
 
+// TODO: Fix first content paint
+// TODO: FIX parallax image format & size
+// TODO: FIX hydration issue
 const PageTemplate: React.FC<PageProps<TPageDataProps>> = ({data}) => {
   const {contents} = data.page
   const {footer, nav, categories, posts} = data

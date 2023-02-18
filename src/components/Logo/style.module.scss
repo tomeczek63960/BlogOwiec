@@ -1,7 +1,5 @@
 @import '@style/shared/index';
 .logo {
-  font-family: sans-serif;
-  font-weight: 900;
   font-size: 2.5rem;
   display: flex;
   align-items: center;
@@ -18,8 +16,7 @@
     }
   }
   span {
-    font-weight: 900;
-    font-family: sans-serif;
+    font-family: $fontFamilyPrimary;
     color: $primaryDark;
     &:last-of-type {
       color: $primaryRed;

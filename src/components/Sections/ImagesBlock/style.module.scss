@@ -1,6 +1,10 @@
 @import '@style/shared/index';
 
 .images-block {
+  margin: $sectionMarginMobile;
+  @include tabletL {
+    margin: $sectionMarginDesktop;
+  }
   &__content {
     display: flex;
     width: 100%;
