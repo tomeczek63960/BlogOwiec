@@ -81,6 +81,16 @@ export const query = graphql`
         seoDescription
       }
       contents {
+        ... on ContentfulImagesBlock {
+          id
+          images {
+            id
+            gatsbyImageData
+          }
+          internal {
+            type
+          }
+        }
         ... on ContentfulBanner {
           image {
             gatsbyImageData(width: 1000)

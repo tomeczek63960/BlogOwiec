@@ -11,4 +11,12 @@
     font-family: $fontFamilyPrimary;
     font-weight: $fontWeightBold;
   }
+  &__image {
+    height: 19rem;
+    width: 100%!important;
+    overflow: hidden;
+    @include tabletP {
+      height: 21rem;
+    }
+  }
 }
